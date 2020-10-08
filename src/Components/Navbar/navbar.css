@@ -1,0 +1,40 @@
+.navbar {
+  height: 80px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  transition: all ease-in-out 0.3s;
+}
+
+.nav-wrap {
+  height: inherit;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 50px;
+}
+
+.logo {
+  width: 200px;
+}
+
+.nav-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  width: 250px;
+}
+
+.nav-list li a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.nav-list li a:hover {
+  cursor: pointer;
+}
+
+.nav-scroll {
+  background-color: white;
+}
