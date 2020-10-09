@@ -3,7 +3,7 @@ import React from 'react';
 import './authentication.css';
 import { Link } from 'react-router-dom';
 
-const AuthForm = ({ type }) => {
+const AuthForm = ({ type, handleChange, handleSubmit, state }) => {
   const types = {
     signup: {
       capitalized: 'Sign up',
@@ -22,7 +22,7 @@ const AuthForm = ({ type }) => {
       <div className="auth-page-bg-overlay">
         <div className="form-box">
           <h3>{types[type].capitalized}</h3>
-          <form>
+          <form onSubmit={handleSubmit}>
             {
               type === 'signup' &&
               <div>
@@ -31,6 +31,8 @@ const AuthForm = ({ type }) => {
                     className="first-name"                
                     type="text"
                     name="firstName"
+                    onChange={handleChange}
+                    value={state.firstName}
                     required
                     autoComplete="new-off"
                   />
@@ -43,6 +45,8 @@ const AuthForm = ({ type }) => {
                     className="last-name"                
                     type="text"
                     name="lastName"
+                    onChange={handleChange}
+                    value={state.lastName}
                     required
                     autoComplete="new-off"
                   />
@@ -58,6 +62,8 @@ const AuthForm = ({ type }) => {
                 className="email"                
                 type="email"
                 name="email"
+                onChange={handleChange}
+                value={state.email}
                 required
                 autoComplete="off"
               />
@@ -71,6 +77,8 @@ const AuthForm = ({ type }) => {
                 className="password"                
                 type="password"
                 name="password"
+                onChange={handleChange}
+                value={state.password}
                 required
                 autoComplete="off"
               />
@@ -85,6 +93,8 @@ const AuthForm = ({ type }) => {
                   className="password-confirmation"                
                   type="password"
                   name="passwordConfirmation"
+                  onChange={handleChange}
+                  value={state.passwordConfirmation}
                   required
                   autoComplete="off"
                 />
