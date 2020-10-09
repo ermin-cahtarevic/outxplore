@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '../styles/authentication.css';
+import './authentication.css';
 import { Link } from 'react-router-dom';
 
 const AuthForm = ({ type }) => {

@@ -27,8 +27,8 @@ const Navbar = () => {
         <div>
           <ul className="nav-list">
             <li><Link to="#">Become a Host</Link></li>
-            <li><Link to="/signup">Sign Up</Link></li>
-            <li><Link to="/login">Log In</Link></li>
+            <li><Link to="/signup">Sign up</Link></li>
+            <li><Link to="/login">Log in</Link></li>
           </ul>
         </div>
       </div>

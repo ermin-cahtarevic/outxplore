@@ -7,5 +7,5 @@
   width: 100%;
   background: rgb(21, 127, 31) url('/group_hike.jpg');
   background-size: cover;
-  background-position-x: 50%;
+  background-position: 50% 50%;
 }
