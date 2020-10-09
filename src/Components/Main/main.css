@@ -5,6 +5,7 @@
 .main-top {
   height: 100vh;
   width: 100%;
-  background: rgb(54, 136, 7) url('/group_hike.jpg');
+  background: rgb(21, 127, 31) url('/group_hike.jpg');
   background-size: cover;
+  background-position-x: 50%;
 }
