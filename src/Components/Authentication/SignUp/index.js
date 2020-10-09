@@ -16,7 +16,7 @@ const SignUp = () => {
                 type="text"
                 name="firstName"
                 required
-                autoComplete="off"
+                autoComplete="new-off"
               />
               <label className="floating-label fl-first-name" htmlFor="firstName">
                 <span className="floating-label-content">First name</span>
@@ -28,7 +28,7 @@ const SignUp = () => {
                 type="text"
                 name="lastName"
                 required
-                autoComplete="off"
+                autoComplete="new-off"
               />
               <label className="floating-label fl-last-name" htmlFor="lastName">
                 <span className="floating-label-content">Last name</span>

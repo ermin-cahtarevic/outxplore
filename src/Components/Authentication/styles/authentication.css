@@ -95,7 +95,7 @@
   left: 0;
   height: 100%;
   width: 100%;
-  border-bottom: 3px solid green;
+  border-bottom: 3px solid rgb(21, 127, 31);
   border-bottom-right-radius: 7px;
   border-bottom-left-radius: 7px;
   transition: all 0.5s ease;
@@ -132,6 +132,10 @@
   outline: none;
   border: none;
   border-radius: 7px;
+}
+
+.submit-btn:hover {
+  cursor: pointer;
 }
 
 .switch-auth {
