@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Main from './Main';
 import SignUp from './Authentication/SignUp';
 import LogIn from './Authentication/LogIn';
 import Navbar from './Navbar';
+import { loggedIn } from '../Redux/Actions/auth';
+import { useDispatch } from 'react-redux';
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    loggedIn(dispatch);
+  }, [dispatch])
+
   return (
     <div>
       <BrowserRouter>

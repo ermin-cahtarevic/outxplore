@@ -1,9 +1,15 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { logout } from '../../Redux/Actions/auth';
 
 import './navbar.css';
 
 const Navbar = () => {
+  const dispatch = useDispatch();
+  const loggedIn = useSelector(store => store.auth.loggedIn);
+  const history = useHistory();
+
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
 
@@ -20,6 +26,13 @@ const Navbar = () => {
     }
   }
 
+  const handleLogout = e => {
+    e.preventDefault();
+
+    logout(dispatch);
+    history.push('/');
+  }
+
   return (
     <nav className="navbar">
       <div className="nav-wrap">
@@ -27,8 +40,15 @@ const Navbar = () => {
         <div>
           <ul className="nav-list">
             <li><Link to="#">Become a Host</Link></li>
-            <li><Link to="/signup">Sign up</Link></li>
-            <li><Link to="/login">Log in</Link></li>
+            {
+              !loggedIn && <li><Link to="/signup">Sign up</Link></li>
+            }
+            {
+              !loggedIn && <li><Link to="/login">Log in</Link></li>
+            }
+            {
+              loggedIn && <li><button onClick={handleLogout}>Logout</button></li>
+            }
           </ul>
         </div>
       </div>

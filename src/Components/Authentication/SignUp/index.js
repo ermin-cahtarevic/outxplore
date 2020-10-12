@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import AuthForm from '../AuthForm';
 import { signUpUser } from '../../../Redux/Actions/auth';
+import { useHistory } from 'react-router';
 
 const SignUp = () => {
   const initialInputState = {
@@ -15,6 +17,9 @@ const SignUp = () => {
   const {
     firstName, lastName, email, password, passwordConfirmation
   } = eachEntry;
+
+  const dispatch = useDispatch();
+  const history = useHistory();
 
   const handleChange = e => {
     setEachEntry({
@@ -36,7 +41,8 @@ const SignUp = () => {
       },
     };
 
-    signUpUser(data);
+    signUpUser(data)(dispatch);
+    history.push('/');
     setEachEntry(initialInputState);
   }
 
