@@ -39,7 +39,7 @@ const Navbar = () => {
         <div className="logo"><Link to="/">outxplore</Link></div>
         <div>
           <ul className="nav-list">
-            <li><Link to="#">Become a Host</Link></li>
+            <li><Link to="/host-activity">Become a Host</Link></li>
             {
               !loggedIn && <li><Link to="/signup">Sign up</Link></li>
             }

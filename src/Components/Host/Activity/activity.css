@@ -1,0 +1,40 @@
+.host-activity {
+  width: 100%;
+}
+
+.host-act-header {
+  width: 100%;
+  max-width: 900px;
+  height: 100vh;
+  min-height: 700px;
+  padding: 0 100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.host-act-header h1 {
+  font-size: 65px;
+  background: -webkit-linear-gradient(45deg, rgb(155, 236, 163), rgb(21, 127, 31));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.host-act-about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.host-act-about div {
+  width: 700px;
+  display: flex;
+  margin: 60px 0;
+}
+
+.host-act-about div img {
+  width: 500px;
+}

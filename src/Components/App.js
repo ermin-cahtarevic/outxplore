@@ -6,6 +6,7 @@ import LogIn from './Authentication/LogIn';
 import Navbar from './Navbar';
 import { loggedIn } from '../Redux/Actions/auth';
 import { useDispatch } from 'react-redux';
+import HostActivity from './Host/Activity';
 
 function App() {
   const dispatch = useDispatch();
@@ -27,6 +28,12 @@ function App() {
           </Route>
           <Route exact path="/login">
             <LogIn />
+          </Route>
+          <Route exact path="/host-activity">
+            <HostActivity />
+          </Route>
+          <Route exact path="/host-onboarding">
+            <HostActivity />
           </Route>
         </Switch>
       </BrowserRouter>
