@@ -3,11 +3,11 @@
 }
 
 .host-act-header {
+  box-sizing: border-box;
   width: 100%;
   max-width: 900px;
   height: 100vh;
   min-height: 700px;
-  padding: 0 100px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -17,24 +17,176 @@
 
 .host-act-header h1 {
   font-size: 65px;
-  background: -webkit-linear-gradient(45deg, rgb(155, 236, 163), rgb(21, 127, 31));
+  background: -webkit-linear-gradient(45deg, rgb(127, 231, 137), rgb(21, 127, 31));
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
+.host-act-start-btn,
+.host-act-start-btn-bottom {
+  padding: 15px 20px;
+  border: none;
+  background-color: rgb(21, 127, 31);
+  color: white;
+  border-radius: 7px;
+  font-size: 18px;
+}
+
+.host-act-start-btn:hover,
+.host-act-start-btn-bottom:hover {
+  cursor: pointer;
+}
+
+.host-act-video-wrap {
+  position: relative;
+}
+
+.host-act-video {
+  width: 100%;
+}
+
+.host-act-gradient {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  height: 200px;
+  width: 100%;
+  background: rgb(0,0,0);
+  background: linear-gradient(0deg, rgb(29, 38, 59, 1) 5%, rgba(0, 0, 0, 0) 100%);
+}
+
 .host-act-about {
+  background-color: rgb(29, 38, 59);
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 30px;
 }
 
 .host-act-about div {
-  width: 700px;
+  width: 900px;
   display: flex;
-  margin: 60px 0;
+  margin: 50px 0;
+  color: white;
 }
 
 .host-act-about div img {
-  width: 500px;
+  width: 450px;
+}
+
+.host-act-about-text {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.host-act-about-text h4 {
+  font-size: 35px;
+  margin: 0;
+}
+
+.host-act-section-1 {
+  width: 900px;
+  margin: 0 auto;
+}
+
+.host-act-section-1 h2 {
+  font-size: 30px;
+  margin-bottom: 45px;
+}
+
+.host-act-icon-box {
+  display: flex;
+  justify-content: space-between;
+  width: 900px;
+  margin: 0 auto;
+}
+
+.host-act-icon-box > div {
+  flex: 1;
+}
+
+.host-act-icon-wrap {
+  width: 100px;
+  height: 100px;
+  border: 5px solid rgb(21, 127, 31);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.host-act-icon {
+  font-size: 60px;
+  color: rgb(21, 127, 31);
+}
+
+.host-act-icon-box div > h4 {
+  height: 35px;
+  margin-top: 35px;
+}
+
+.host-act-icon-box div > h4,
+.host-act-icon-box div > p {
+  padding: 0 20px;
+  text-align: center;
+}
+
+.host-act-getting-started {
+  width: 900px;
+  padding: 30px 0;
+  margin: 0 auto;
+}
+
+.host-act-getting-started h2 {
+  font-size: 30px;
+}
+
+.host-act-getting-started h3 {
+  font-size: 18px;
+  color: rgb(136, 136, 136);
+}
+
+.host-act-getting-started-list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.host-act-getting-started-list > div {
+  box-sizing: border-box;
+  width: 280px;
+  padding: 30px 20px;
+  margin: 10px 0;
+  text-align: center;
+  background-color: rgb(241, 241, 241);
+}
+
+.host-act-num-wrap {
+  width: 50px;
+  height: 50px;
+  border: 2px solid rgb(0,0,0);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.host-act-num-wrap div {
+  font-size: 24px;
+}
+
+.host-act-getting-started-list div h4 {
+  font-size: 22px;
+  height: 35px;
+  margin-bottom: 60px;
+}
+
+.host-act-start-btn-bottom {
+  display: block;
+  margin: 50px auto;
 }
