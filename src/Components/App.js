@@ -7,6 +7,7 @@ import Navbar from './Navbar';
 import { loggedIn } from '../Redux/Actions/auth';
 import { useDispatch } from 'react-redux';
 import HostActivity from './Host/Activity';
+import HostForm from './Host/HostForm';
 
 function App() {
   const dispatch = useDispatch();
@@ -33,7 +34,7 @@ function App() {
             <HostActivity />
           </Route>
           <Route exact path="/host-onboarding">
-            <HostActivity />
+            <HostForm />
           </Route>
         </Switch>
       </BrowserRouter>

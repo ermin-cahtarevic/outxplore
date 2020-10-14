@@ -31,6 +31,7 @@
   color: white;
   border-radius: 7px;
   font-size: 18px;
+  text-decoration: none;
 }
 
 .host-act-start-btn:hover,
@@ -187,6 +188,7 @@
 }
 
 .host-act-start-btn-bottom {
+  width: fit-content;
   display: block;
   margin: 50px auto;
 }

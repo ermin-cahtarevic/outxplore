@@ -2,13 +2,14 @@ import React from 'react';
 import { ImUserCheck, ImMap, ImAccessibility } from 'react-icons/im';
 
 import './activity.css';
+import { Link } from 'react-router-dom';
 
 const HostActivity = () => {
   return (
     <div className="host-activity">
       <div className="host-act-header">
         <h1>Host the activities you enjoy doing, and earn money along the way.</h1>
-        <button type="button" className="host-act-start-btn">Let's start</button>
+        <Link className="host-act-start-btn" to="host-onboarding">Let's start</Link>
       </div>
       <div className="host-act-video-wrap">
         <video autoPlay="autoplay" loop="loop" muted className="host-act-video">
@@ -98,7 +99,7 @@ const HostActivity = () => {
             <p>It's time to do what you love!</p>
           </div>
         </div>
-        <button type="button" className="host-act-start-btn-bottom">Let's start</button>
+        <Link className="host-act-start-btn-bottom" to="host-onboarding">Let's start</Link>
       </div>
     </div>
   );
