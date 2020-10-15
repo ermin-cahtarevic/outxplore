@@ -16,3 +16,9 @@ export const previousExperience = [
   { label: 'Hosted outdoor tours for friends or family', value: 'amateur' },
   { label: 'Never before hosted a tour', value: 'unexperienced' },
 ];
+
+export const locationTypes = [
+  { label: 'It is unique, guests would not be able to get the full experience without me', value: 'excellent' },
+  { label: 'Guests could do it on their own, but I bring a unique perspective to the activity', value: 'good' },
+  { label: 'Guests could do it on their own, without me', value: 'bad' },
+];

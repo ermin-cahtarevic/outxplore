@@ -1,17 +1,10 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import Place from 'react-algolia-places'
 import { hostApplication } from '../../../Redux/Actions/host';
-import { activities, previousExperience } from '../../helper';
+import { activities, previousExperience, locationTypes } from '../../helper';
 
 import './hostForm.css';
-
-const options = [
-  { label: '1', value: '1' },
-  { label: '2', value: '2' },
-  { label: '3', value: '3' },
-  { label: '4', value: '4' },
-  { label: '5', value: '5' },
-]
 
 const HostForm = () => {
   const initialState = {
@@ -19,15 +12,16 @@ const HostForm = () => {
     previousHostingExperience: '',
     guestMaxNum: 1,
     additionalExperienceInfo: '',
-    location: '',
     locationType: '',
     detailedDescription: '',
     links: '',
   };
 
   const [formInput, setFormInput] = useState(initialState);
+  const [locationInput, setLocationInput] = useState('');
+  
   const {
-    activityType, previousHostingExperience, guestMaxNum, additionalExperienceInfo, location, locationType,
+    activityType, previousHostingExperience, guestMaxNum, additionalExperienceInfo, locationType,
     detailedDescription, links
   } = formInput;
 
@@ -47,16 +41,15 @@ const HostForm = () => {
       host_application: {
         activity_type: activityType,
         previous_hosting_experience: previousHostingExperience,
-        guest_max_num: guestMaxNum,
+        guest_max_num: parseInt(guestMaxNum),
         additional_experience_info: additionalExperienceInfo,
-        location,
+        location: locationInput,
         location_type: locationType,
         detailed_description: detailedDescription,
         links,
       },
     };
 
-    console.log(data)
     hostApplication(data)(dispatch);
     setFormInput(initialState);
   }
@@ -124,20 +117,12 @@ const HostForm = () => {
             <div>
               <h4>Location</h4>
               <p>Where would the activity take place? <span className="red-star">*</span></p>
-              <select
-                className="host-form-select"
-                onChange={handleChange}
+              <Place
+                onChange={e => setLocationInput(e.suggestion.value)}
+                value={locationInput}
                 placeholder="Location of activity"
-                required
                 name="location"
-                value={location}
-              >
-                {
-                  options.map(option => (
-                    <option key={option.value} value={option.value}>{option.label}</option>
-                  ))
-                }
-              </select>
+              />
               <p>What best describes the location and activity? <span className="red-star">*</span></p>
               <select
                 className="host-form-select"
@@ -148,7 +133,7 @@ const HostForm = () => {
                 value={locationType}
               >
                 {
-                  options.map(option => (
+                  locationTypes.map(option => (
                     <option key={option.value} value={option.value}>{option.label}</option>
                   ))
                 }
