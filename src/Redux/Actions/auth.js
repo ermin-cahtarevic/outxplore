@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-const urlSignUp = 'http://localhost:3002/registrations';
-const urlLogIn = 'http://localhost:3002/sessions';
-const urlLoggedIn = 'http://localhost:3002/logged_in';
-const urlLogout = 'http://localhost:3002/logout';
+const urlSignUp = 'http://localhost:3001/registrations';
+const urlLogIn = 'http://localhost:3001/sessions';
+const urlLoggedIn = 'http://localhost:3001/logged_in';
+const urlLogout = 'http://localhost:3001/logout';
 
 export const signUpUser = data => dispatch => {
   axios.post(
