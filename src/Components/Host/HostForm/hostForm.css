@@ -30,6 +30,18 @@
   border-radius: 4px;
 }
 
+.host-form-select:hover {
+  cursor: pointer;
+}
+
+.host-form-number-input {
+  box-sizing: border-box;
+  height: 40px;
+  width: 200px;
+  padding: 0 10px;
+  font-size: 16px;
+}
+
 .host-form form textarea {
   box-sizing: border-box;
   width: 100%;

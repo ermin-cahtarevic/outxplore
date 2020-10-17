@@ -14,6 +14,9 @@ export const signUpUser = data => dispatch => {
     console.log(res.data);
     dispatch({
       type: 'SIGNUP_SUCCESS',
+      payload: {
+        user: res.data.user,
+      },
     });
   });
 };
@@ -27,6 +30,9 @@ export const LogInUser = data => dispatch => {
     console.log('log in -> ', res.data);
     dispatch({
       type: 'LOGIN_SUCCESS',
+      payload: {
+        user: res.data.user,
+      },
     });
   });
 };
@@ -39,6 +45,9 @@ export const loggedIn = dispatch => {
     console.log('logged in? -> ', res.data);
     res.data.logged_in && dispatch({
       type: 'LOGIN_SUCCESS',
+      payload: {
+        user: res.data.user,
+      },
     });
   });
 };

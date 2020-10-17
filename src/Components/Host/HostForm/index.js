@@ -98,6 +98,7 @@ const HostForm = () => {
               </select>
               <p>What is the maximum number of guests you would take on? <span className="red-star">*</span></p>
               <input
+              className="host-form-number-input"
                 type="number"
                 onChange={handleChange}
                 min={1}
@@ -159,7 +160,7 @@ const HostForm = () => {
                 onChange={handleChange}
               />
             </div>
-            <span><span className="red-star">*</span> - Recuired fields</span>
+            <span><span className="red-star">*</span> - Required fields</span>
 
             <button type="submit" className="host-form-apply-btn">Apply</button>
           </form>

@@ -49,6 +49,9 @@ const Navbar = () => {
             {
               loggedIn && <li><button onClick={handleLogout}>Logout</button></li>
             }
+            {
+              loggedIn && <li><Link to="/user">Profile</Link></li>
+            }
           </ul>
         </div>
       </div>

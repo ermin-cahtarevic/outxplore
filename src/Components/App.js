@@ -1,20 +1,22 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import Main from './Main';
 import SignUp from './Authentication/SignUp';
 import LogIn from './Authentication/LogIn';
 import Navbar from './Navbar';
 import { loggedIn } from '../Redux/Actions/auth';
-import { useDispatch } from 'react-redux';
 import HostActivity from './Host/Activity';
 import HostForm from './Host/HostForm';
+import Profile from './Profile';
+import ProtectedRoute from './ProtectedRoute';
 
 function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
     loggedIn(dispatch);
-  }, [dispatch])
+  }, [dispatch]);
 
   return (
     <div>
@@ -33,9 +35,8 @@ function App() {
           <Route exact path="/host-activity">
             <HostActivity />
           </Route>
-          <Route exact path="/host-onboarding">
-            <HostForm />
-          </Route>
+          <ProtectedRoute exact={true} component={HostForm} path="/host-onboarding" />
+          <ProtectedRoute exact={true} component={Profile} path="/user" />
         </Switch>
       </BrowserRouter>
     </div>
