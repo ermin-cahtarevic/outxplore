@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../../Redux/Actions/auth';
+import { ImUser } from 'react-icons/im';
 
 import './navbar.css';
 
@@ -9,12 +10,15 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const loggedIn = useSelector(store => store.auth.loggedIn);
   const history = useHistory();
+  const node = useRef();
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
+    document.addEventListener('mousedown', handleDropdownClose);
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      document.removeEventListener('mousedown', handleDropdownClose);
     }
   }, []);
 
@@ -24,6 +28,16 @@ const Navbar = () => {
     } else {
       document.querySelector('.navbar').classList.remove('nav-scroll');
     }
+  }
+
+  const handleDropdown = e => {
+    document.querySelector('.navbar-dropdown').classList.toggle('navbar-dropdown-closed')
+  }
+
+  const handleDropdownClose = e => {
+    if (node.current.contains(e.target)) return;
+
+    document.querySelector('.navbar-dropdown').classList.add('navbar-dropdown-closed');
   }
 
   const handleLogout = e => {
@@ -39,19 +53,28 @@ const Navbar = () => {
         <div className="logo"><Link to="/">outxplore</Link></div>
         <div>
           <ul className="nav-list">
-            <li><Link to="/host-activity">Become a Host</Link></li>
-            {
-              !loggedIn && <li><Link to="/signup">Sign up</Link></li>
-            }
-            {
-              !loggedIn && <li><Link to="/login">Log in</Link></li>
-            }
-            {
-              loggedIn && <li><button onClick={handleLogout}>Logout</button></li>
-            }
-            {
-              loggedIn && <li><Link to="/user">Profile</Link></li>
-            }
+            <li><Link to="/host-activity" onClick={handleDropdownClose}>Become a Host</Link></li>
+            <li ref={node} className="navbar-dropdown-wrap">
+              <button type="button" className="navbar-dropdown-btn" onClick={handleDropdown}>
+                <ImUser />
+              </button>
+              <ul className="navbar-dropdown navbar-dropdown-closed">
+                {
+                  !loggedIn && <li onClick={handleDropdown}><Link to="/signup">Sign up</Link></li>
+                }
+                {
+                  !loggedIn && <li onClick={handleDropdown}><Link to="/login">Log in</Link></li>
+                }
+                {
+                  loggedIn && <li onClick={handleDropdown}><Link to="/user">Profile</Link></li>
+                }
+                <li onClick={handleDropdown}><Link to="host-activity" >Host an Experience</Link></li>
+                {
+                  loggedIn && <li onClick={handleDropdown}><button className="logout-btn" onClick={handleLogout}>Logout</button></li>
+                }
+              </ul>
+            </li>
+            
           </ul>
         </div>
       </div>

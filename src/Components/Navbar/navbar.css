@@ -39,3 +39,101 @@
 .nav-scroll {
   background-color: white;
 }
+
+.navbar-dropdown-wrap {
+  position: relative;
+}
+
+.navbar-dropdown-btn {
+  width: 70px;
+  padding: 8px 0;
+  font-size: 22px;
+  border: 1px solid transparent;
+  color: rgb(136, 136, 136);
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  transition: background-color 0.2s ease-in;
+}
+
+.navbar-dropdown-btn:hover {
+  cursor: pointer;
+  background-color: rgb(204, 204, 204);
+  color: white;
+}
+
+.navbar-dropdown-btn:focus {
+  outline: none;
+  box-shadow: 0 0 3px black;
+}
+
+.nav-scroll .navbar-dropdown-btn {
+  border-color: rgb(204, 204, 204);
+}
+
+.navbar-dropdown {
+  width: 250px;
+  background-color: white;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+  position: absolute;
+  top: 150%;
+  right: 0;
+  border-radius: 20px;
+  list-style: none;
+  padding-inline-start: 0;
+}
+
+.navbar-dropdown li {
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 16px;
+}
+
+.navbar-dropdown li:first-child,
+.navbar-dropdown li:first-child a {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.navbar-dropdown li:last-child,
+.navbar-dropdown li:last-child a {
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.navbar-dropdown li a {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 15px 20px;
+}
+
+.logout-btn {
+  border: none;
+  border-top: 1px solid rgb(204, 204, 204);
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  text-align: start;
+  padding: 15px 20px;
+  font-size: 16px;
+}
+
+.logout-btn:hover {
+  cursor: pointer;
+}
+
+.logout-btn:focus {
+  outline: none;
+}
+
+.navbar-dropdown li:hover {
+  background-color: rgb(236, 236, 236);
+}
+
+.navbar-dropdown-closed {
+  display: none;
+}
