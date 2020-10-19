@@ -1,0 +1,47 @@
+.user-profile-page {
+  width: 100%;
+}
+
+.user-profile-wrap {
+  width: 900px;
+  height: 100%;
+  margin: 150px auto 0;
+  padding: 50px 0;
+  display: flex;
+  background-color: rgb(236, 236, 236);
+  border-radius: 15px;
+}
+
+.user-profile-wrap aside {
+  width: 300px;
+}
+
+.user-profile-wrap section {
+  box-sizing: border-box;
+  width: 600px;
+  padding-right: 40px;
+}
+
+.user-profile-photo-wrap {
+  width: 200px;
+  height: 200px;
+  margin: 10px auto;
+  border: 3px solid black;
+  border-radius: 50%;
+}
+
+.user-profile-photo-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.user-profile-location {
+  display: flex;
+  align-items: center;
+}
+
+.user-profile-location p {
+  margin: 0 20px;
+}
