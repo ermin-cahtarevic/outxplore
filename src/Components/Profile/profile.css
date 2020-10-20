@@ -22,11 +22,17 @@
   padding-right: 40px;
 }
 
+.user-profile-wrap section h4 {
+  font-size: 18px;
+  margin: 7px 0;
+  color: rgb(21, 127, 31);
+}
+
 .user-profile-photo-wrap {
   width: 200px;
   height: 200px;
   margin: 10px auto;
-  border: 3px solid black;
+  border: 3px solid rgb(21, 127, 31);
   border-radius: 50%;
 }
 
@@ -44,4 +50,8 @@
 
 .user-profile-location p {
   margin: 0 20px;
+}
+
+.home-icon {
+  color: rgb(21, 127, 31);
 }

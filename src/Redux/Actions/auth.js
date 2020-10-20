@@ -4,6 +4,7 @@ const urlSignUp = 'http://localhost:3001/registrations';
 const urlLogIn = 'http://localhost:3001/sessions';
 const urlLoggedIn = 'http://localhost:3001/logged_in';
 const urlLogout = 'http://localhost:3001/logout';
+const urlUpdatePhoto = 'http://localhost:3001/update_photo';
 
 export const signUpUser = data => dispatch => {
   axios.post(
@@ -61,5 +62,15 @@ export const logout = dispatch => {
     dispatch({
       type: 'LOGOUT_SUCCESS',
     });
+  });
+}
+
+export const updatePhoto = data => {
+  axios.put(
+    urlUpdatePhoto,
+    data,
+    { withCredentials: true }
+  ).then(res => {
+    console.log(res.data);
   });
 }
