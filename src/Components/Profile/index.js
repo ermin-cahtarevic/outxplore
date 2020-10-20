@@ -4,6 +4,7 @@ import { ImHome } from "react-icons/im";
 import { updatePhoto } from '../../Redux/Actions/auth';
 
 import './profile.css';
+import Modal from './Modal/Modal';
 
 const Profile = () => {
   const [photo, setPhoto] = useState({});
@@ -24,17 +25,19 @@ const Profile = () => {
     setPhoto({});
   }
 
+  const openModal = () => {
+    document.querySelector('.modal-wrap').classList.add('modal-show');
+  }
+
   return (
     <div className="user-profile-page">
+      <Modal onChange={onChange} onSubmit={onSubmit} />
       <div className="user-profile-wrap">
         <aside>
           <div className="user-profile-photo-wrap">
             <img src={user.photo} alt={`${user.first_name} ${user.last_name}`} />
-            <form onSubmit={onSubmit}>
-              <input type="file" name="photo" onChange={onChange} />
-              <input type="submit" />
-            </form>
           </div>
+          <button onClick={openModal}>Update profile photo</button>
         </aside>
         <section>
           <div>

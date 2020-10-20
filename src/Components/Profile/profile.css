@@ -14,6 +14,22 @@
 
 .user-profile-wrap aside {
   width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-profile-wrap aside button {
+  background-color: rgb(21, 127, 31);
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 7px;
+  font-size: 14px;
+}
+
+.user-profile-wrap aside button:hover {
+  cursor: pointer;
 }
 
 .user-profile-wrap section {
