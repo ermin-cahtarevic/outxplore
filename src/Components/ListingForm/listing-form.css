@@ -15,6 +15,19 @@
   border-radius: 7px;
 }
 
+.listing-form-wrap form > div h4 {
+  margin: 5px 0;
+}
+
+.listing-form-wrap span {
+  font-style: italic;
+  color: rgb(134, 134, 134);
+}
+
+.listing-form-wrap span.red-star {
+  color: red;
+}
+
 .listing-form-wrap form > div input {
   box-sizing: border-box;
   width: 100%;
