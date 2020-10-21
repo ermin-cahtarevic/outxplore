@@ -72,7 +72,9 @@ const Navbar = () => {
                 {
                   isHost && <li onClick={handleDropdown}><Link to="/listings/new">Create an Activity Listing</Link></li>
                 }
-                <li onClick={handleDropdown}><Link to="/host-activity" >Host an Experience</Link></li>
+                {
+                  !isHost && <li onClick={handleDropdown}><Link to="/host-activity" >Host an Experience</Link></li>
+                }
                 {
                   loggedIn && <li onClick={handleDropdown}><button className="logout-btn" onClick={handleLogout}>Logout</button></li>
                 }
