@@ -9,7 +9,7 @@ const Modal = ({ onSubmit, onChange }) => {
   };
 
   return (
-    <div className="modal-wrap modal-show">
+    <div className="modal-wrap">
       <div className="modal">
         <button className="modal-close-btn" onClick={handleClose}>
           <ImCross />

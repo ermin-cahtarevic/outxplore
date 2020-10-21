@@ -10,6 +10,8 @@ import HostActivity from './Host/Activity';
 import HostForm from './Host/HostForm';
 import Profile from './Profile';
 import ProtectedRoute from './ProtectedRoute';
+import HostRoute from './HostRoute';
+import ListingForm from './ListingForm';
 
 function App() {
   const dispatch = useDispatch();
@@ -37,6 +39,7 @@ function App() {
           </Route>
           <ProtectedRoute exact={true} component={HostForm} path="/host-onboarding" />
           <ProtectedRoute exact={true} component={Profile} path="/user" />
+          <HostRoute exact={true} component={ListingForm} path="/listings/new" />
         </Switch>
       </BrowserRouter>
     </div>

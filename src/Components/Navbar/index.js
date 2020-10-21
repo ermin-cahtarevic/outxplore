@@ -9,6 +9,7 @@ import './navbar.css';
 const Navbar = () => {
   const dispatch = useDispatch();
   const loggedIn = useSelector(store => store.auth.loggedIn);
+  const isHost = useSelector(store => store.auth.user.host);
   const history = useHistory();
   const node = useRef();
 
@@ -68,7 +69,10 @@ const Navbar = () => {
                 {
                   loggedIn && <li onClick={handleDropdown}><Link to="/user">Profile</Link></li>
                 }
-                <li onClick={handleDropdown}><Link to="host-activity" >Host an Experience</Link></li>
+                {
+                  isHost && <li onClick={handleDropdown}><Link to="/listings/new">Create an Activity Listing</Link></li>
+                }
+                <li onClick={handleDropdown}><Link to="/host-activity" >Host an Experience</Link></li>
                 {
                   loggedIn && <li onClick={handleDropdown}><button className="logout-btn" onClick={handleLogout}>Logout</button></li>
                 }

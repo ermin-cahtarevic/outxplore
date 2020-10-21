@@ -1,0 +1,16 @@
+.listing-form-page {
+  width: 100%;
+  padding-top: 120px;
+}
+
+.listing-form-wrap {
+  width: 900px;
+  margin: 0 auto;
+}
+
+.listing-form-wrap form > div {
+  margin: 20px 0;
+  background-color: rgb(241, 241, 241);
+  padding: 20px 20px 30px;
+  border-radius: 7px;
+}
