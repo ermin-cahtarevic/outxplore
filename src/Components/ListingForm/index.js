@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import Place from 'react-algolia-places';
+import { activities } from '../helper';
 
 import './listing-form.css';
-import { activities } from '../helper';
+import { createLisitng } from '../../Redux/Actions/listings';
+import { useDispatch } from 'react-redux';
 
 const ListingForm = () => {
   const initialState = {
@@ -17,6 +19,8 @@ const ListingForm = () => {
   const [formInput, setFormInput] = useState(initialState);
   const [locationInput, setLocationInput] = useState('');
 
+  const dispatch = useDispatch();
+
   const { title, description, activityType, guestMaxNum, photos, price } = formInput;
 
   const handleChange = e => {
@@ -28,34 +32,33 @@ const ListingForm = () => {
 
   const handlePhotoChange = e => {
     e.persist();
-
-    const temp = photos;
-    temp.push(e.target.files);
-
+    
     setFormInput({
       ...formInput,
-      photos: temp,
+      photos: e.target.files,
     });
   }
 
   const handleSubmit = e => {
     e.preventDefault();
 
-    const photoData = new FormData();
-    photoData.append('photos', photos);
-
-    const data = {
-      lisitng: {
-        ...formInput,
-        activity_type: activityType,
-        guest_max_num: parseInt(guestMaxNum),
-        location: locationInput,
-        photos: photoData,
-      },
+    const data = new FormData();
+    for (let i = 0; i < photos.length; i++) {
+      data.append(`photos[${i}]`, photos[i]);
     };
 
-    console.log(data);
+    data.append('title', title);
+    data.append('description', description);
+    data.append('activity_type', activityType);
+    data.append('guest_max_num', guestMaxNum);
+    data.append('price', price);
+    data.append('location', locationInput);
+
+    createLisitng(data)(dispatch);
+
     setFormInput(initialState);
+    setLocationInput('');
+    document.querySelector('.activity-listing-photo-input').value = '';
   }
 
   return (
@@ -133,6 +136,7 @@ const ListingForm = () => {
               multiple={true}
               name="photos"
               onChange={handlePhotoChange}
+              className="activity-listing-photo-input"
             />
           </div>
           <div>
