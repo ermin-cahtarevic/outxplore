@@ -1,19 +1,25 @@
-import { LISTING_CREATE_SUCCESS, LISTING_CREATE_FAIL } from '../helper';
+import { LISTING_CREATE_SUCCESS, LISTING_CREATE_FAIL, LISTING_FETCH_SUCCESS } from '../helper';
 
 const initialState = {
   creationLoading: false,
-  listing: {},
+  currentListing: {},
+  listings: [],
 };
 
 const listingsReducer = (state = initialState, action) => {
   switch (action.type) {
     case LISTING_CREATE_SUCCESS:
       return {
-        listing: action.payload,
+        currentListing: action.payload,
       };
     case LISTING_CREATE_FAIL:
       return {
-        listing: {},
+        currentListing: {},
+      };
+    case LISTING_FETCH_SUCCESS:
+      return {
+        currentListing: {},
+        listings: action.payload,
       };
     default: return state;
   };
