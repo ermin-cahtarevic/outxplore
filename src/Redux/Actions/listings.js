@@ -1,7 +1,8 @@
 import axios from 'axios';
-import { LISTING_CREATE_SUCCESS, LISTING_FETCH_SUCCESS } from '../helper';
+import { LISTING_CREATE_SUCCESS, LISTINGS_FETCH_SUCCESS, LISTING_DETAILS_FETCH_SUCCESS } from '../helper';
 
 const urlListings = 'http://localhost:3001/listings';
+const urlListingDetails = id => `http://localhost:3001/listings/${id}`;
 
 export const createLisitng = data => dispatch => {
   axios.post(
@@ -21,10 +22,21 @@ export const fetchListings = dispatch => {
     urlListings,
     { withCredentials: true }
   ).then(res => {
-    console.log(res.data);
     dispatch({
-      type: LISTING_FETCH_SUCCESS,
+      type: LISTINGS_FETCH_SUCCESS,
       payload: res.data.listings,
+    })
+  });
+};
+
+export const fetchListingDetails = id => dispatch => {
+  axios.get(
+    urlListingDetails(id),
+    { withCredentials: true }
+  ).then(res => {
+    dispatch({
+      type: LISTING_DETAILS_FETCH_SUCCESS,
+      payload: res.data.listing,
     })
   });
 };

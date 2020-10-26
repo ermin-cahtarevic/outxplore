@@ -12,6 +12,7 @@ import Profile from './Profile';
 import ProtectedRoute from './ProtectedRoute';
 import HostRoute from './HostRoute';
 import ListingForm from './ListingForm';
+import ListingPage from './ListingPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -36,6 +37,9 @@ function App() {
           </Route>
           <Route exact path="/host-activity">
             <HostActivity />
+          </Route>
+          <Route exact path="/listing/:id">
+            <ListingPage />
           </Route>
           <ProtectedRoute exact={true} component={HostForm} path="/host-onboarding" />
           <ProtectedRoute exact={true} component={Profile} path="/user" />

@@ -1,10 +1,20 @@
 import React from 'react';
+import { useHistory } from 'react-router';
 
 import './listing-card.css';
 
 const ListingCard = ({ listing }) => {
+  const history = useHistory();
+  const showListing = id => history.push(`/listing/${id}`);
+
   return (
-    <div key={listing.id} className="listing-card">
+    <div
+      className="listing-card"
+      onClick={() => showListing(listing.id)}
+      onKeyDown={() => showListing(listing.id)}
+      role="button"
+      tabIndex={0}
+    >
       <img src={listing.photos[0]} alt={listing.title} />
       <div>
         <h3>{listing.title}</h3>

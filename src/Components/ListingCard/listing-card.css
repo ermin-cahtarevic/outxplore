@@ -10,6 +10,17 @@
   border-radius: 15px;
 }
 
+.listing-card button.slick-arrow {
+  width: 23px;
+  height: 23px;
+}
+
+.listing-card button.slick-prev::before,
+.listing-card button.slick-next::before {
+  color: rgb(182, 182, 182);
+  font-size: 24px;
+}
+
 .listing-card img {
   height: 250px;
   object-fit: cover;

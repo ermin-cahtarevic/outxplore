@@ -1,0 +1,81 @@
+.listing-page-wrap {
+  padding-top: 120px;
+}
+
+.listing-page-main {
+  width: 900px;
+  margin: 0 auto;
+}
+
+.listing-page-photos {
+  margin-bottom: 50px;
+}
+
+.listing-page-img-wrap img {
+  height: 600px;
+  max-width: 100%;
+  object-fit: cover;
+  margin: 0 auto;
+}
+
+div.slick-list {
+  width: 100%;
+}
+
+.slick-slide div:focus,
+.slick-slide div div:focus,
+.slick-slide.slick-active.slick-current > div:focus,
+.slick-slide.slick-active.slick-current > div:visited,
+.slick-slide.slick-active.slick-current div > div:focus,
+.slick-slide.slick-active.slick-current div > div:visited {
+  outline: none;
+}
+
+.listing-page-photos button.slick-arrow {
+  width: 33px;
+  height: 33px;
+}
+
+button.slick-prev,
+button.slick-next {
+  z-index: 99;
+  background-color: white;
+  border-radius: 50%;
+}
+
+button.slick-prev {
+  left: 2%;
+}
+
+button.slick-next {
+  right: 2%;
+}
+
+button.slick-prev:hover,
+button.slick-prev:focus,
+button.slick-next:hover,
+button.slick-next:focus {
+  background-color: white;
+}
+
+.listing-page-photos button.slick-prev::before,
+.listing-page-photos button.slick-next::before {
+  color: rgb(182, 182, 182);
+  font-size: 35px;
+}
+
+.listing-page-details {
+  display: flex;
+}
+
+.listing-page-details > div {
+  width: 650px;
+}
+
+.listing-page-details > aside {
+  background-color: rgb(182, 182, 182);
+  width: 250px;
+  height: 250px;
+  position: sticky;
+  top: 100px;
+}
