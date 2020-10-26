@@ -93,7 +93,7 @@ const ListingForm = () => {
             <select
               className="host-form-select"
               onChange={handleChange}
-              placeholder="Select the activities"
+              placeholder="Select the activity"
               required
               name="activityType"
               value={activityType}
