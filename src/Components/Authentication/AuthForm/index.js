@@ -3,7 +3,7 @@ import React from 'react';
 import './authentication.css';
 import { Link } from 'react-router-dom';
 
-const AuthForm = ({ type, handleChange, handleSubmit, state }) => {
+const AuthForm = ({ type, handleChange, handleSubmit, state, error }) => {
   const types = {
     signup: {
       capitalized: 'Sign up',
@@ -22,6 +22,9 @@ const AuthForm = ({ type, handleChange, handleSubmit, state }) => {
       <div className="auth-page-bg-overlay">
         <div className="form-box">
           <h3>{types[type].capitalized}</h3>
+          {
+            error && <p className="auth-error">{error}</p>
+          }
           <form onSubmit={handleSubmit}>
             {
               type === 'signup' &&

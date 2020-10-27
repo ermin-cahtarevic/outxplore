@@ -14,6 +14,8 @@ const SignUp = () => {
   };
 
   const [eachEntry, setEachEntry] = useState(initialInputState);
+  const [error, setError] = useState(null);
+
   const {
     firstName, lastName, email, password, passwordConfirmation
   } = eachEntry;
@@ -26,10 +28,17 @@ const SignUp = () => {
       ...eachEntry,
       [e.target.name]: e.target.value,
     });
+
+    if (!!error) setError(null);
   };
 
   const handleSubmit = e => {
     e.preventDefault();
+
+    if (Object.values(eachEntry).some(input => input.trim().length < 1 )) {
+      setError('Please fill out all of the fields!');
+      return;
+    }
 
     const data = {
       user: {
@@ -47,7 +56,7 @@ const SignUp = () => {
   }
 
   return (
-      <AuthForm type="signup" handleChange={handleChange} handleSubmit={handleSubmit} state={eachEntry} />
+      <AuthForm type="signup" handleChange={handleChange} handleSubmit={handleSubmit} state={eachEntry} error={error} />
   );
 };
 
