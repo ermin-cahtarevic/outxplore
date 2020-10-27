@@ -5,20 +5,14 @@
   display: flex;
   flex-direction: column;
   background-color: white;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   margin: 10px;
   border-radius: 15px;
 }
 
-.listing-card button.slick-arrow {
-  width: 23px;
-  height: 23px;
-}
-
-.listing-card button.slick-prev::before,
-.listing-card button.slick-next::before {
-  color: rgb(182, 182, 182);
-  font-size: 24px;
+.listing-card:hover {
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
 }
 
 .listing-card img {

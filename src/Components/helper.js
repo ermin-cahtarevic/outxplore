@@ -1,5 +1,4 @@
 export const activities = [
-  { label: '', value: '' },
   { label: 'Hiking', value: 'hiking' },
   { label: 'Mountain biking', value: 'mountain_biking' },
   { label: 'Rafting', value: 'rafting' },

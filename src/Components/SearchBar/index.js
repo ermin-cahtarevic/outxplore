@@ -33,6 +33,7 @@ const SearchBar = () => {
           required
           value={activityInput}
         >
+          <option value="" disabled>Select an activity</option>
           {
             activities.map(option => (
               <option key={option.value} value={option.value}>{option.label}</option>

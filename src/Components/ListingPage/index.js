@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 import Slider from 'react-slick';
+import { ImUsers } from 'react-icons/im';
 import { fetchListingDetails } from '../../Redux/Actions/listings';
 
 import './listing-page.css';
@@ -45,11 +46,32 @@ const ListingPage = () => {
         </div>
         <div className="listing-page-details">
           <div>
-            <h2>{listing.title}</h2>
-            <p>{listing.description}</p>
+            <div>
+              <h2>{listing.title}</h2>
+            </div>
+            <div className="listing-page-main-info">
+              <div>
+                <ImUsers />
+              </div>
+              <p>Up to {listing.guest_max_num} 
+                {
+                  listing.guest_max_num > 1 ? ' people' : ' person' 
+                }
+              </p>
+            </div>
+            <div>
+              <h4>Location</h4>
+              <p>{listing.location}</p>
+            </div>
+            <div>
+              <h4>Description of the activity</h4>
+              <p>{listing.description}</p>
+            </div>
           </div>
-          <aside>
-            {listing.price}
+          <aside className="listing-page-side-info">
+            <h2>$ {listing.price}</h2>
+            <span> per person</span>
+            <button>Contact the host</button>
           </aside>
         </div>
       </div>
