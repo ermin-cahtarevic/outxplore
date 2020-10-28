@@ -1,7 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import './authentication.css';
-import { Link } from 'react-router-dom';
+import Loader from 'react-loader-spinner';
 
 const AuthForm = ({ type, handleChange, handleSubmit, state, error }) => {
   const types = {
@@ -15,12 +17,23 @@ const AuthForm = ({ type, handleChange, handleSubmit, state, error }) => {
     },
   };
 
+  const loading = useSelector(store => store.auth.loading);
+
   const opposite = type === 'signup' ? types['login'] : types['signup'];
 
   return (
     <div className="auth-page">
       <div className="auth-page-bg-overlay">
         <div className="form-box">
+          { 
+            loading && 
+            <div className="loader">
+              <Loader
+                type="Oval"
+                color="rgb(21, 127, 31)"
+              />
+            </div>
+          }
           <h3>{types[type].capitalized}</h3>
           {
             error && <p className="auth-error">{error}</p>

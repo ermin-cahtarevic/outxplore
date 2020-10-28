@@ -59,7 +59,8 @@
   color: rgb(134, 134, 134);
 }
 
-.red-star {
+.red-star,
+.form-error {
   color: red;
 }
 

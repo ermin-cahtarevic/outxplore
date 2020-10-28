@@ -40,8 +40,7 @@ const LogIn = () => {
       },
     };
 
-    LogInUser(data)(dispatch);
-    history.push('/');
+    LogInUser(data)(dispatch, history);
     setEachEntry(initialInputState);
   }
 

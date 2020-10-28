@@ -18,6 +18,8 @@ const ListingForm = () => {
 
   const [formInput, setFormInput] = useState(initialState);
   const [locationInput, setLocationInput] = useState('');
+  const [error, setError] = useState(null);
+  const [photosError, setPhotosError] = useState(null);
 
   const dispatch = useDispatch();
 
@@ -33,14 +35,31 @@ const ListingForm = () => {
   const handlePhotoChange = e => {
     e.persist();
     
+    if (e.target.files.length < 2) {
+      setPhotosError('You need to add at east two photos!');
+      document.querySelector('.activity-listing-photo-input').value = '';
+      return;
+    } else if (e.target.files.length > 5) {
+      setPhotosError('You need to add a maximum of five photos!');
+      document.querySelector('.activity-listing-photo-input').value = '';
+      return;
+    }
+
     setFormInput({
       ...formInput,
       photos: e.target.files,
     });
+
+    if (!!photosError) setPhotosError(null);
   }
 
   const handleSubmit = e => {
     e.preventDefault();
+
+    if (Object.values(formInput).some(input => input.trim().length < 1 )) {
+      setError('Please fill out all of the fields!');
+      return;
+    }
 
     const data = new FormData();
     for (let i = 0; i < photos.length; i++) {
@@ -75,6 +94,7 @@ const ListingForm = () => {
               value={title}
               placeholder="Activity title"
               onChange={handleChange}
+              required
             />
           </div>
           <div>
@@ -85,6 +105,7 @@ const ListingForm = () => {
               value={description}
               placeholder="Activity description"
               onChange={handleChange}
+              required
             />
           </div>
           <div>
@@ -131,12 +152,14 @@ const ListingForm = () => {
           <div>
             <h4>Photos</h4>
             <p>Add at least two photos of the activity and the location. <span>(min 2 - max 5)</span> <span className="red-star">*</span></p>
+            { photosError && <p className="form-error">{photosError}</p> }
             <input
               type="file"
               multiple={true}
               name="photos"
               onChange={handlePhotoChange}
               className="activity-listing-photo-input"
+              required
             />
           </div>
           <div>
@@ -151,11 +174,13 @@ const ListingForm = () => {
                 placeholder="Activity price"
                 onChange={handleChange}
                 className="activity-listing-price-field"
+                required
               />
             </div>
           </div>
           <span><span className="red-star">*</span> - Required fields</span>
 
+          { error && <p className="form-error">{error}</p> }
           <button type="submit" className="activity-listing-submit-btn">Submit</button>
         </form>
       </div>

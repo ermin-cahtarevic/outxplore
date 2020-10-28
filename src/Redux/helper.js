@@ -1,3 +1,5 @@
+export const LOGIN_SUBMIT = 'LOGIN_SUBMIT';
+export const SIGNUP_SUBMIT = 'SIGNUP_SUBMIT';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const SIGNUP_SUCCESS = 'SIGNUP_SUCCESS';
 export const LOGIN_FAIL = 'LOGIN_FAIL';

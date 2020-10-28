@@ -19,6 +19,7 @@ const HostForm = () => {
 
   const [formInput, setFormInput] = useState(initialState);
   const [locationInput, setLocationInput] = useState('');
+  const [error, setError] = useState(null);
   
   const {
     activityType, previousHostingExperience, guestMaxNum, additionalExperienceInfo, locationType,
@@ -32,10 +33,17 @@ const HostForm = () => {
       ...formInput,
       [e.target.name]: e.target.value,
     });
+
+    if (!!error) setError(null);
   };
 
   const handleSubmit = e => {
     e.preventDefault();
+
+    if (Object.values(formInput).some(input => input.trim().length < 1 )) {
+      setError('Please fill out all of the fields!');
+      return;
+    }
 
     const data = {
       host_application: {
@@ -107,7 +115,7 @@ const HostForm = () => {
                 name="guestMaxNum"
                 value={guestMaxNum}
               />
-              <p>Provide any additional information that you believe is relevant (ex. previous experience, target audience). <span className="optional">(optional)</span></p>
+              <p>Provide any additional information that you believe is relevant (ex. previous experience, target audience). <span className="red-star">*</span></p>
               <textarea
                 placeholder="ex. 'My target audience is...', 'I have worked as a tour guide...'"
                 value={formInput.additionalExperienceInfo}
@@ -152,7 +160,7 @@ const HostForm = () => {
             </div>
             <div>
               <h4>Additional info</h4>
-              <p>Please attach links where we can find photos of you performing the selected activities. <span className="optional">(optional, but will improve the chances of getting approved)</span></p>
+              <p>Please attach links where we can find photos of you performing the selected activities. <span className="red-star">*</span></p>
               <textarea
                 placeholder="ex. social media accounts, link to an online photo folder..."
                 value={formInput.links}
@@ -161,7 +169,8 @@ const HostForm = () => {
               />
             </div>
             <span><span className="red-star">*</span> - Required fields</span>
-
+            
+            { error && <p className="form-error">{error}</p> }
             <button type="submit" className="host-form-apply-btn">Apply</button>
           </form>
         </div>
