@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { ImHome } from "react-icons/im";
 import { updatePhoto } from '../../Redux/Actions/auth';
 
@@ -9,6 +9,7 @@ import Modal from './Modal/Modal';
 const Profile = () => {
   const [photo, setPhoto] = useState({});
   const user = useSelector(store => store.auth.user);
+  const dispatch = useDispatch();
 
   const onChange = e => {
     e.persist();
@@ -20,7 +21,7 @@ const Profile = () => {
     const data = new FormData();
     data.append('photo', photo);
 
-    updatePhoto(data);
+    updatePhoto(data)(dispatch);
 
     setPhoto({});
   }
@@ -35,7 +36,7 @@ const Profile = () => {
       <div className="user-profile-wrap">
         <aside>
           <div className="user-profile-photo-wrap">
-            <img src={user.photo} alt={`${user.first_name} ${user.last_name}`} />
+            <img src={user.photo ? user.photo : '/download.png'} alt={`${user.first_name} ${user.last_name}`} />
           </div>
           <button onClick={openModal}>Update profile photo</button>
         </aside>

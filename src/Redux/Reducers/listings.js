@@ -24,7 +24,12 @@ const listingsReducer = (state = initialState, action) => {
     case LISTING_DETAILS_FETCH_SUCCESS:
       return {
         ...state,
-        currentListing: action.payload,
+        currentListing: {
+          ...action.payload.listing,
+          host: {
+            ...action.payload.user,
+          },
+        }
       };
     default: return state;
   };

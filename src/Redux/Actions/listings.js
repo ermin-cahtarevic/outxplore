@@ -36,7 +36,7 @@ export const fetchListingDetails = id => dispatch => {
   ).then(res => {
     dispatch({
       type: LISTING_DETAILS_FETCH_SUCCESS,
-      payload: res.data.listing,
+      payload: res.data,
     })
   });
 };

@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Slider from 'react-slick';
 import { ImUsers } from 'react-icons/im';
 import { fetchListingDetails } from '../../Redux/Actions/listings';
+import LoadingSpinner from '../LoadingSpinner';
 
 import './listing-page.css';
 import 'slick-carousel/slick/slick.css';
@@ -27,7 +28,7 @@ const ListingPage = () => {
   };
 
   if (Object.keys(listing).length === 0) {
-    return <div>Loading...</div>
+    return <LoadingSpinner />
   }
 
   return (
@@ -69,9 +70,13 @@ const ListingPage = () => {
             </div>
           </div>
           <aside className="listing-page-side-info">
-            <h2>$ {listing.price}</h2>
+            <h1>$ {listing.price}</h1>
             <span> per person</span>
             <button>Contact the host</button>
+            <div className="listing-page-host-info">
+              <img src={listing.host.photo} alt={`${listing.host.first_name} ${listing.host.last_name}`} />
+              <h3>{`${listing.host.first_name} ${listing.host.last_name}`}</h3>
+            </div>
           </aside>
         </div>
       </div>

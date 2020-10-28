@@ -50,8 +50,7 @@ const SignUp = () => {
       },
     };
 
-    signUpUser(data)(dispatch);
-    history.push('/');
+    signUpUser(data)(dispatch, history);
     setEachEntry(initialInputState);
   }
 

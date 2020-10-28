@@ -89,7 +89,7 @@ button.slick-next:focus {
 
 .listing-page-side-info {
   width: 200px;
-  height: 200px;
+  height: 400px;
   margin-left: auto;
   position: sticky;
   top: 100px;
@@ -104,10 +104,25 @@ button.slick-next:focus {
 
 .listing-page-side-info button {
   padding: 10px 12px;
-  margin: 20px 0 0;
+  margin: 40px 0 0;
   font-size: 18px;
   color: white;
   background-color: rgb(21, 127, 31);
   border: none;
   border-radius: 7px;
+}
+
+.listing-page-host-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.listing-page-host-info img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid rgb(21, 127, 31);
 }

@@ -1,4 +1,4 @@
-import { LOGIN_SUCCESS, LOGIN_FAIL, SIGNUP_SUCCESS, SIGNUP_FAIL, LOGOUT_SUCCESS, LOGIN_SUBMIT, SIGNUP_SUBMIT } from '../helper';
+import { LOGIN_SUCCESS, LOGIN_FAIL, SIGNUP_SUCCESS, SIGNUP_FAIL, LOGOUT_SUCCESS, LOGIN_SUBMIT, SIGNUP_SUBMIT, PHOTO_UPDATE_SUCCESS } from '../helper';
 
 const initialState = {
   loading: false,
@@ -29,6 +29,14 @@ const authReducer = (state = initialState, action) => {
         loggedIn: false,
         user: {},
       };
+    case PHOTO_UPDATE_SUCCESS:
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          photo: action.payload,
+        }
+      }
     default: return state;
   }
 };
