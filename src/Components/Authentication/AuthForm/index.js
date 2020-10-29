@@ -50,9 +50,6 @@ const AuthForm = ({
               && (
               <div>
                 <div className="field">
-                  <label className="floating-label fl-first-name" htmlFor="firstName">
-                    <span className="floating-label-content">First name</span>
-                  </label>
                   <input
                     className="first-name"
                     type="text"
@@ -63,6 +60,9 @@ const AuthForm = ({
                     required
                     autoComplete="new-off"
                   />
+                  <label className="floating-label fl-first-name" htmlFor="firstName">
+                    <span className="floating-label-content">First name</span>
+                  </label>
                 </div>
                 <div className="field">
                   <input
