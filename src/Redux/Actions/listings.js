@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { LISTING_CREATE_SUCCESS, LISTINGS_FETCH_SUCCESS, LISTING_DETAILS_FETCH_SUCCESS } from '../helper';
 
-const urlListings = 'http://localhost:3001/listings';
-const urlListingDetails = id => `http://localhost:3001/listings/${id}`;
+const urlListings = 'https://nameless-waters-17056.herokuapp.com/listings';
+const urlListingDetails = id => `https://nameless-waters-17056.herokuapp.com/listings/${id}`;
 
 export const createLisitng = data => dispatch => {
   axios.post(
