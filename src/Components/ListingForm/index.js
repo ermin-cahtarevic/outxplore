@@ -23,7 +23,9 @@ const ListingForm = () => {
 
   const dispatch = useDispatch();
 
-  const { title, description, activityType, guestMaxNum, photos, price } = formInput;
+  const {
+    title, description, activityType, guestMaxNum, photos, price,
+  } = formInput;
 
   const handleChange = e => {
     setFormInput({
@@ -34,12 +36,12 @@ const ListingForm = () => {
 
   const handlePhotoChange = e => {
     e.persist();
-    
+
     if (e.target.files.length < 2) {
       setPhotosError('You need to add at east two photos!');
       document.querySelector('.activity-listing-photo-input').value = '';
       return;
-    } else if (e.target.files.length > 5) {
+    } if (e.target.files.length > 5) {
       setPhotosError('You need to add a maximum of five photos!');
       document.querySelector('.activity-listing-photo-input').value = '';
       return;
@@ -50,21 +52,21 @@ const ListingForm = () => {
       photos: e.target.files,
     });
 
-    if (!!photosError) setPhotosError(null);
-  }
+    if (photosError) setPhotosError(null);
+  };
 
   const handleSubmit = e => {
     e.preventDefault();
 
-    if (Object.values(formInput).some(input => input.trim().length < 1 )) {
+    if (Object.values(formInput).some(input => input.trim().length < 1)) {
       setError('Please fill out all of the fields!');
       return;
     }
 
     const data = new FormData();
-    for (let i = 0; i < photos.length; i++) {
+    for (let i = 0; i < photos.length; i += 1) {
       data.append(`photos[${i}]`, photos[i]);
-    };
+    }
 
     data.append('title', title);
     data.append('description', description);
@@ -78,16 +80,19 @@ const ListingForm = () => {
     setFormInput(initialState);
     setLocationInput('');
     document.querySelector('.activity-listing-photo-input').value = '';
-  }
+  };
 
   return (
     <div className="listing-form-page">
       <div className="listing-form-wrap">
-        <h2>Let's build your new Activity Lisitng</h2>
+        <h2>Let&apos;s build your new Activity Lisitng</h2>
         <form onSubmit={handleSubmit}>
           <div>
             <h4>Title</h4>
-            <p>Add in a title for your activity lisitng. <span className="red-star">*</span></p>
+            <p>
+              Add in a title for your activity lisitng.
+              <span className="red-star">*</span>
+            </p>
             <input
               type="text"
               name="title"
@@ -99,7 +104,10 @@ const ListingForm = () => {
           </div>
           <div>
             <h4>Description</h4>
-            <p>Describe the activity in as much detail as you can. <span className="red-star">*</span></p>
+            <p>
+              Describe the activity in as much detail as you can.
+              <span className="red-star">*</span>
+            </p>
             <textarea
               name="description"
               value={description}
@@ -110,7 +118,10 @@ const ListingForm = () => {
           </div>
           <div>
             <h4>Activity type</h4>
-            <p>Choose the type of activity you will be hosting. <span className="red-star">*</span></p>
+            <p>
+              Choose the type of activity you will be hosting.
+              <span className="red-star">*</span>
+            </p>
             <select
               className="host-form-select"
               onChange={handleChange}
@@ -128,7 +139,10 @@ const ListingForm = () => {
           </div>
           <div>
             <h4>Maximum number of guests</h4>
-            <p>What is the maximum number of guests you would take on? <span className="red-star">*</span></p>
+            <p>
+              What is the maximum number of guests you would take on?
+              <span className="red-star">*</span>
+            </p>
             <input
               className="host-form-number-input"
               type="number"
@@ -142,7 +156,10 @@ const ListingForm = () => {
           </div>
           <div>
             <h4>Location</h4>
-            <p>Where will the activity be held? <span className="red-star">*</span></p>
+            <p>
+              Where will the activity be held?
+              <span className="red-star">*</span>
+            </p>
             <Place
               onChange={e => setLocationInput(e.suggestion.value)}
               value={locationInput}
@@ -151,11 +168,16 @@ const ListingForm = () => {
           </div>
           <div>
             <h4>Photos</h4>
-            <p>Add at least two photos of the activity and the location. <span>(min 2 - max 5)</span> <span className="red-star">*</span></p>
+            <p>
+              Add at least two photos of the activity and the location.
+              <span>(min 2 - max 5)</span>
+              {' '}
+              <span className="red-star">*</span>
+            </p>
             { photosError && <p className="form-error">{photosError}</p> }
             <input
               type="file"
-              multiple={true}
+              multiple
               name="photos"
               onChange={handlePhotoChange}
               className="activity-listing-photo-input"
@@ -164,7 +186,10 @@ const ListingForm = () => {
           </div>
           <div>
             <h4>Price</h4>
-            <p>How much will the activity cost per person? <span className="red-star">*</span></p>
+            <p>
+              How much will the activity cost per person?
+              <span className="red-star">*</span>
+            </p>
             <div className="activity-listing-price-input">
               $
               <input
@@ -178,7 +203,11 @@ const ListingForm = () => {
               />
             </div>
           </div>
-          <span><span className="red-star">*</span> - Required fields</span>
+          <span>
+            <span className="red-star">*</span>
+            {' '}
+            - Required fields
+          </span>
 
           { error && <p className="form-error">{error}</p> }
           <button type="submit" className="activity-listing-submit-btn">Submit</button>

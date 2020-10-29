@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import AuthForm from '../AuthForm';
-import { LogInUser } from '../../../Redux/Actions/auth';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
+import AuthForm from '../AuthForm';
+import { LogInUser } from '../../../Redux/Actions/auth';
 
 const LogIn = () => {
   const initialInputState = {
@@ -22,13 +22,13 @@ const LogIn = () => {
       [e.target.name]: e.target.value,
     });
 
-    if (!!error) setError(null);
+    if (error) setError(null);
   };
 
   const handleSubmit = e => {
     e.preventDefault();
 
-    if (Object.values(eachEntry).some(input => input.trim().length < 1 )) {
+    if (Object.values(eachEntry).some(input => input.trim().length < 1)) {
       setError('Please fill out all of the fields!');
       return;
     }
@@ -42,7 +42,7 @@ const LogIn = () => {
 
     LogInUser(data)(dispatch, history);
     setEachEntry(initialInputState);
-  }
+  };
 
   return (
     <div>

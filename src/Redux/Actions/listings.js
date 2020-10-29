@@ -8,7 +8,7 @@ export const createLisitng = data => dispatch => {
   axios.post(
     urlListings,
     data,
-    { withCredentials: true }
+    { withCredentials: true },
   ).then(res => {
     dispatch({
       type: LISTING_CREATE_SUCCESS,
@@ -20,23 +20,23 @@ export const createLisitng = data => dispatch => {
 export const fetchListings = dispatch => {
   axios.get(
     urlListings,
-    { withCredentials: true }
+    { withCredentials: true },
   ).then(res => {
     dispatch({
       type: LISTINGS_FETCH_SUCCESS,
       payload: res.data.listings,
-    })
+    });
   });
 };
 
 export const fetchListingDetails = id => dispatch => {
   axios.get(
     urlListingDetails(id),
-    { withCredentials: true }
+    { withCredentials: true },
   ).then(res => {
     dispatch({
       type: LISTING_DETAILS_FETCH_SUCCESS,
       payload: res.data,
-    })
+    });
   });
 };

@@ -5,7 +5,9 @@ import Loader from 'react-loader-spinner';
 
 import './authentication.css';
 
-const AuthForm = ({ type, handleChange, handleSubmit, state, error }) => {
+const AuthForm = ({
+  type, handleChange, handleSubmit, state, error,
+}) => {
   const types = {
     signup: {
       capitalized: 'Sign up',
@@ -19,20 +21,22 @@ const AuthForm = ({ type, handleChange, handleSubmit, state, error }) => {
 
   const loading = useSelector(store => store.auth.loading);
 
-  const opposite = type === 'signup' ? types['login'] : types['signup'];
+  const opposite = type === 'signup' ? types.login : types.signup;
 
   return (
     <div className="auth-page">
       <div className="auth-page-bg-overlay">
         <div className="form-box">
-          { 
-            loading && 
+          {
+            loading
+            && (
             <div className="loader">
               <Loader
                 type="Oval"
                 color="rgb(21, 127, 31)"
               />
             </div>
+            )
           }
           <h3>{types[type].capitalized}</h3>
           {
@@ -40,11 +44,12 @@ const AuthForm = ({ type, handleChange, handleSubmit, state, error }) => {
           }
           <form onSubmit={handleSubmit}>
             {
-              type === 'signup' &&
+              type === 'signup'
+              && (
               <div>
                 <div className="field">
                   <input
-                    className="first-name"                
+                    className="first-name"
                     type="text"
                     name="firstName"
                     onChange={handleChange}
@@ -58,7 +63,7 @@ const AuthForm = ({ type, handleChange, handleSubmit, state, error }) => {
                 </div>
                 <div className="field">
                   <input
-                    className="last-name"                
+                    className="last-name"
                     type="text"
                     name="lastName"
                     onChange={handleChange}
@@ -71,11 +76,12 @@ const AuthForm = ({ type, handleChange, handleSubmit, state, error }) => {
                   </label>
                 </div>
               </div>
+              )
             }
 
             <div className="field field-margin">
               <input
-                className="email"                
+                className="email"
                 type="email"
                 name="email"
                 onChange={handleChange}
@@ -90,7 +96,7 @@ const AuthForm = ({ type, handleChange, handleSubmit, state, error }) => {
 
             <div className="field field-margin">
               <input
-                className="password"                
+                className="password"
                 type="password"
                 name="password"
                 onChange={handleChange}
@@ -103,10 +109,11 @@ const AuthForm = ({ type, handleChange, handleSubmit, state, error }) => {
               </label>
             </div>
             {
-              type === 'signup' &&
+              type === 'signup'
+              && (
               <div className="field field-margin">
                 <input
-                  className="password-confirmation"                
+                  className="password-confirmation"
                   type="password"
                   name="passwordConfirmation"
                   onChange={handleChange}
@@ -118,6 +125,7 @@ const AuthForm = ({ type, handleChange, handleSubmit, state, error }) => {
                   <span className="floating-label-content">Password confirmation</span>
                 </label>
               </div>
+              )
             }
             <button type="submit" className="submit-btn">{types[type].capitalized}</button>
           </form>

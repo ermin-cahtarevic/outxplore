@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { logout } from '../../Redux/Actions/auth';
 import { ImUser } from 'react-icons/im';
+import { logout } from '../../Redux/Actions/auth';
 
 import './navbar.css';
 
@@ -20,7 +20,7 @@ const Navbar = () => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
       document.removeEventListener('mousedown', handleDropdownClose);
-    }
+    };
   }, []);
 
   const handleScroll = () => {
@@ -29,24 +29,24 @@ const Navbar = () => {
     } else {
       document.querySelector('.navbar').classList.remove('nav-scroll');
     }
-  }
+  };
 
   const handleDropdown = e => {
-    document.querySelector('.navbar-dropdown').classList.toggle('navbar-dropdown-closed')
-  }
+    document.querySelector('.navbar-dropdown').classList.toggle('navbar-dropdown-closed');
+  };
 
   const handleDropdownClose = e => {
     if (node.current.contains(e.target)) return;
 
     document.querySelector('.navbar-dropdown').classList.add('navbar-dropdown-closed');
-  }
+  };
 
   const handleLogout = e => {
     e.preventDefault();
 
     logout(dispatch);
     history.push('/');
-  }
+  };
 
   return (
     <nav className="navbar">
@@ -73,14 +73,14 @@ const Navbar = () => {
                   isHost && <li onClick={handleDropdown}><Link to="/listings/new">Create an Activity Listing</Link></li>
                 }
                 {
-                  !isHost && <li onClick={handleDropdown}><Link to="/host-activity" >Host an Experience</Link></li>
+                  !isHost && <li onClick={handleDropdown}><Link to="/host-activity">Host an Experience</Link></li>
                 }
                 {
                   loggedIn && <li onClick={handleDropdown}><button className="logout-btn" onClick={handleLogout}>Logout</button></li>
                 }
               </ul>
             </li>
-            
+
           </ul>
         </div>
       </div>

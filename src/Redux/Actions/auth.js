@@ -1,5 +1,7 @@
 import axios from 'axios';
-import { LOGIN_SUBMIT, SIGNUP_SUBMIT, SIGNUP_SUCCESS, LOGIN_SUCCESS, LOGOUT_SUCCESS, PHOTO_UPDATE_SUCCESS } from '../helper';
+import {
+  LOGIN_SUBMIT, SIGNUP_SUBMIT, SIGNUP_SUCCESS, LOGIN_SUCCESS, LOGOUT_SUCCESS, PHOTO_UPDATE_SUCCESS,
+} from '../helper';
 
 const urlSignUp = 'http://localhost:3001/registrations';
 const urlLogIn = 'http://localhost:3001/sessions';
@@ -15,7 +17,7 @@ export const signUpUser = data => (dispatch, history) => {
   axios.post(
     urlSignUp,
     data,
-    { withCredentials: true }
+    { withCredentials: true },
   ).then(res => {
     history.push('/');
     dispatch({
@@ -35,7 +37,7 @@ export const LogInUser = data => (dispatch, history) => {
   axios.post(
     urlLogIn,
     data,
-    { withCredentials: true }
+    { withCredentials: true },
   ).then(res => {
     history.push('/');
     dispatch({
@@ -50,7 +52,7 @@ export const LogInUser = data => (dispatch, history) => {
 export const loggedIn = dispatch => {
   axios.get(
     urlLoggedIn,
-    { withCredentials: true }
+    { withCredentials: true },
   ).then(res => {
     res.data.logged_in && dispatch({
       type: LOGIN_SUCCESS,
@@ -70,17 +72,17 @@ export const logout = dispatch => {
       type: LOGOUT_SUCCESS,
     });
   });
-}
+};
 
 export const updatePhoto = data => dispatch => {
   axios.put(
     urlUpdatePhoto,
     data,
-    { withCredentials: true }
+    { withCredentials: true },
   ).then(res => {
     dispatch({
       type: PHOTO_UPDATE_SUCCESS,
       payload: res.data.user.photo,
     });
   });
-}
+};

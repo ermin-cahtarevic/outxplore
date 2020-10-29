@@ -20,10 +20,10 @@ const HostForm = () => {
   const [formInput, setFormInput] = useState(initialState);
   const [locationInput, setLocationInput] = useState('');
   const [error, setError] = useState(null);
-  
+
   const {
     activityType, previousHostingExperience, guestMaxNum, additionalExperienceInfo, locationType,
-    detailedDescription, links
+    detailedDescription, links,
   } = formInput;
 
   const dispatch = useDispatch();
@@ -34,13 +34,13 @@ const HostForm = () => {
       [e.target.name]: e.target.value,
     });
 
-    if (!!error) setError(null);
+    if (error) setError(null);
   };
 
   const handleSubmit = e => {
     e.preventDefault();
 
-    if (Object.values(formInput).some(input => input.trim().length < 1 )) {
+    if (Object.values(formInput).some(input => input.trim().length < 1)) {
       setError('Please fill out all of the fields!');
       return;
     }
@@ -60,18 +60,21 @@ const HostForm = () => {
 
     hostApplication(data)(dispatch);
     setFormInput(initialState);
-  }
+  };
 
   return (
     <div className="host-form-page">
       <div className="host-form-wrap">
-        <h2>Let's start the process!</h2>
+        <h2>Let&apos;s start the process!</h2>
         <p>Using the bellow form add all of the information that we will need in order to decide if you are a good candidate.</p>
         <div className="host-form">
           <form onSubmit={handleSubmit}>
             <div className="activity-type">
               <h4>Activity type</h4>
-              <p>Choose an activity you would be hosting. <span className="red-star">*</span></p>
+              <p>
+                Choose an activity you would be hosting.
+                <span className="red-star">*</span>
+              </p>
               <select
                 className="host-form-select"
                 onChange={handleChange}
@@ -89,7 +92,10 @@ const HostForm = () => {
             </div>
             <div>
               <h4>Previous experience</h4>
-              <p>Do you have any previous hosting experience? <span className="red-star">*</span></p>
+              <p>
+                Do you have any previous hosting experience?
+                <span className="red-star">*</span>
+              </p>
               <select
                 className="host-form-select"
                 onChange={handleChange}
@@ -104,9 +110,12 @@ const HostForm = () => {
                   ))
                 }
               </select>
-              <p>What is the maximum number of guests you would take on? <span className="red-star">*</span></p>
+              <p>
+                What is the maximum number of guests you would take on?
+                <span className="red-star">*</span>
+              </p>
               <input
-              className="host-form-number-input"
+                className="host-form-number-input"
                 type="number"
                 onChange={handleChange}
                 min={1}
@@ -115,7 +124,10 @@ const HostForm = () => {
                 name="guestMaxNum"
                 value={guestMaxNum}
               />
-              <p>Provide any additional information that you believe is relevant (ex. previous experience, target audience). <span className="red-star">*</span></p>
+              <p>
+                Provide any additional information that you believe is relevant (ex. previous experience, target audience).
+                <span className="red-star">*</span>
+              </p>
               <textarea
                 placeholder="ex. 'My target audience is...', 'I have worked as a tour guide...'"
                 value={formInput.additionalExperienceInfo}
@@ -125,14 +137,20 @@ const HostForm = () => {
             </div>
             <div>
               <h4>Location</h4>
-              <p>Where would the activity take place? <span className="red-star">*</span></p>
+              <p>
+                Where would the activity take place?
+                <span className="red-star">*</span>
+              </p>
               <Place
                 onChange={e => setLocationInput(e.suggestion.value)}
                 value={locationInput}
                 placeholder="Location of activity"
                 name="location"
               />
-              <p>What best describes the location and activity? <span className="red-star">*</span></p>
+              <p>
+                What best describes the location and activity?
+                <span className="red-star">*</span>
+              </p>
               <select
                 className="host-form-select"
                 onChange={handleChange}
@@ -150,7 +168,10 @@ const HostForm = () => {
             </div>
             <div>
               <h4>Detailed description</h4>
-              <p>Tell us about the experience you want to provide to your guests. Explain the whole process - from guests arriving to the end of the trip - in detail. <span className="red-star">*</span></p>
+              <p>
+                Tell us about the experience you want to provide to your guests. Explain the whole process - from guests arriving to the end of the trip - in detail.
+                <span className="red-star">*</span>
+              </p>
               <textarea
                 placeholder="ex. 'The guests would arrive to the determined location, I would introduce myself and explain how the trip will go down...'"
                 value={formInput.detailedDescription}
@@ -160,7 +181,10 @@ const HostForm = () => {
             </div>
             <div>
               <h4>Additional info</h4>
-              <p>Please attach links where we can find photos of you performing the selected activities. <span className="red-star">*</span></p>
+              <p>
+                Please attach links where we can find photos of you performing the selected activities.
+                <span className="red-star">*</span>
+              </p>
               <textarea
                 placeholder="ex. social media accounts, link to an online photo folder..."
                 value={formInput.links}
@@ -168,8 +192,12 @@ const HostForm = () => {
                 onChange={handleChange}
               />
             </div>
-            <span><span className="red-star">*</span> - Required fields</span>
-            
+            <span>
+              <span className="red-star">*</span>
+              {' '}
+              - Required fields
+            </span>
+
             { error && <p className="form-error">{error}</p> }
             <button type="submit" className="host-form-apply-btn">Apply</button>
           </form>

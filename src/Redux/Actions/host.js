@@ -7,11 +7,11 @@ export const hostApplication = data => dispatch => {
   axios.post(
     urlHostApplication,
     data,
-    { withCredentials: true }
+    { withCredentials: true },
   ).then(res => {
     console.log(res.data);
     dispatch({
       type: APPLICATION_SUBMISSION_SUCCESS,
-    })
-  })
-}
+    });
+  });
+};

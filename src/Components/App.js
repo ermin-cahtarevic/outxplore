@@ -41,9 +41,9 @@ function App() {
           <Route exact path="/listing/:id">
             <ListingPage />
           </Route>
-          <ProtectedRoute exact={true} component={HostForm} path="/host-onboarding" />
-          <ProtectedRoute exact={true} component={Profile} path="/user" />
-          <HostRoute exact={true} component={ListingForm} path="/listings/new" />
+          <ProtectedRoute exact component={HostForm} path="/host-onboarding" />
+          <ProtectedRoute exact component={Profile} path="/user" />
+          <HostRoute exact component={ListingForm} path="/listings/new" />
         </Switch>
       </BrowserRouter>
     </div>

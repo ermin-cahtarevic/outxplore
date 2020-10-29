@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { ImHome } from "react-icons/im";
+import { ImHome } from 'react-icons/im';
 import { updatePhoto } from '../../Redux/Actions/auth';
 
 import './profile.css';
@@ -14,7 +14,7 @@ const Profile = () => {
   const onChange = e => {
     e.persist();
     setPhoto(e.target.files[0]);
-  }
+  };
 
   const onSubmit = e => {
     e.preventDefault();
@@ -24,11 +24,11 @@ const Profile = () => {
     updatePhoto(data)(dispatch);
 
     setPhoto({});
-  }
+  };
 
   const openModal = () => {
     document.querySelector('.modal-wrap').classList.add('modal-show');
-  }
+  };
 
   return (
     <div className="user-profile-page">

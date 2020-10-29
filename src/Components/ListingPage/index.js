@@ -28,7 +28,7 @@ const ListingPage = () => {
   };
 
   if (Object.keys(listing).length === 0) {
-    return <LoadingSpinner />
+    return <LoadingSpinner />;
   }
 
   return (
@@ -54,9 +54,11 @@ const ListingPage = () => {
               <div>
                 <ImUsers />
               </div>
-              <p>Up to {listing.guest_max_num} 
+              <p>
+                Up to
+                {listing.guest_max_num}
                 {
-                  listing.guest_max_num > 1 ? ' people' : ' person' 
+                  listing.guest_max_num > 1 ? ' people' : ' person'
                 }
               </p>
             </div>
@@ -70,7 +72,10 @@ const ListingPage = () => {
             </div>
           </div>
           <aside className="listing-page-side-info">
-            <h1>$ {listing.price}</h1>
+            <h1>
+              $
+              {listing.price}
+            </h1>
             <span> per person</span>
             <button>Contact the host</button>
             <div className="listing-page-host-info">

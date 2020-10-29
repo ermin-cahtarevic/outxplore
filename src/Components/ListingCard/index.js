@@ -20,7 +20,12 @@ const ListingCard = ({ listing }) => {
         <h3>{listing.title}</h3>
         <p>{listing.description}</p>
         <div>
-          <span className="listing-card-price">$ {listing.price} <span className="listing-card-price-it">per person</span></span>
+          <span className="listing-card-price">
+            $
+            {listing.price}
+            {' '}
+            <span className="listing-card-price-it">per person</span>
+          </span>
         </div>
       </div>
     </div>

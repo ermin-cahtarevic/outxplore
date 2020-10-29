@@ -5,7 +5,6 @@ import { activities } from '../helper';
 import './search-bar.css';
 
 const SearchBar = () => {
-
   const [activityInput, setActivityInput] = useState('');
   const [locationInput, setLocationInput] = useState('');
 
@@ -15,7 +14,7 @@ const SearchBar = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-  }
+  };
 
   return (
     <div className="search-bar-wrap">

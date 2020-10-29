@@ -1,4 +1,6 @@
-import { LISTING_CREATE_SUCCESS, LISTING_CREATE_FAIL, LISTINGS_FETCH_SUCCESS, LISTING_DETAILS_FETCH_SUCCESS } from '../helper';
+import {
+  LISTING_CREATE_SUCCESS, LISTING_CREATE_FAIL, LISTINGS_FETCH_SUCCESS, LISTING_DETAILS_FETCH_SUCCESS,
+} from '../helper';
 
 const initialState = {
   creationLoading: false,
@@ -29,10 +31,10 @@ const listingsReducer = (state = initialState, action) => {
           host: {
             ...action.payload.user,
           },
-        }
+        },
       };
     default: return state;
-  };
+  }
 };
 
 export default listingsReducer;

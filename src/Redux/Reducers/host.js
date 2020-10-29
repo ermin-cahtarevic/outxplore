@@ -2,7 +2,7 @@ import { APPLICATION_SUBMISSION_SUCCESS } from '../helper';
 
 const initialState = {
   applied: false,
-}
+};
 
 const hostReducer = (state = initialState, action) => {
   switch (action.type) {
