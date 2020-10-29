@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import Place from 'react-algolia-places';
+import { useDispatch } from 'react-redux';
 import { activities } from '../helper';
+import { createLisitng } from '../../Redux/Actions/listings';
 
 import './listing-form.css';
-import { createLisitng } from '../../Redux/Actions/listings';
-import { useDispatch } from 'react-redux';
 
 const ListingForm = () => {
   const initialState = {

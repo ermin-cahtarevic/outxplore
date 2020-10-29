@@ -31,6 +31,7 @@ const ListingPage = () => {
     return <LoadingSpinner />;
   }
 
+  /* eslint-disable react/jsx-props-no-spreading */
   return (
     <div className="listing-page-wrap">
       <div className="listing-page-main">
@@ -77,7 +78,7 @@ const ListingPage = () => {
               {listing.price}
             </h1>
             <span> per person</span>
-            <button>Contact the host</button>
+            <button type="button">Contact the host</button>
             <div className="listing-page-host-info">
               <img src={listing.host.photo} alt={`${listing.host.first_name} ${listing.host.last_name}`} />
               <h3>{`${listing.host.first_name} ${listing.host.last_name}`}</h3>
@@ -88,5 +89,6 @@ const ListingPage = () => {
     </div>
   );
 };
+/* eslint-enable react/jsx-props-no-spreading */
 
 export default ListingPage;

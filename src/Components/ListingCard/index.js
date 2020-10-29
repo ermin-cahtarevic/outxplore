@@ -1,5 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router';
+import Proptypes from 'prop-types';
 
 import './listing-card.css';
 
@@ -30,6 +31,10 @@ const ListingCard = ({ listing }) => {
       </div>
     </div>
   );
+};
+
+ListingCard.propTypes = {
+  listing: Proptypes.instanceOf(Object).isRequired,
 };
 
 export default ListingCard;

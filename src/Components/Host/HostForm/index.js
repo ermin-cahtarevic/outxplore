@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import Place from 'react-algolia-places';
-import { hostApplication } from '../../../Redux/Actions/host';
+import hostApplication from '../../../Redux/Actions/host';
 import { activities, previousExperience, locationTypes } from '../../helper';
 
 import './hostForm.css';
@@ -49,7 +49,7 @@ const HostForm = () => {
       host_application: {
         activity_type: activityType,
         previous_hosting_experience: previousHostingExperience,
-        guest_max_num: parseInt(guestMaxNum),
+        guest_max_num: parseInt(guestMaxNum, 10),
         additional_experience_info: additionalExperienceInfo,
         location: locationInput,
         location_type: locationType,
@@ -66,7 +66,10 @@ const HostForm = () => {
     <div className="host-form-page">
       <div className="host-form-wrap">
         <h2>Let&apos;s start the process!</h2>
-        <p>Using the bellow form add all of the information that we will need in order to decide if you are a good candidate.</p>
+        <p>
+          Using the bellow form add all of the information that we will need in order to
+          decide if you are a good candidate.
+        </p>
         <div className="host-form">
           <form onSubmit={handleSubmit}>
             <div className="activity-type">
@@ -125,7 +128,8 @@ const HostForm = () => {
                 value={guestMaxNum}
               />
               <p>
-                Provide any additional information that you believe is relevant (ex. previous experience, target audience).
+                Provide any additional information that you believe is relevant
+                (ex. previous experience, target audience).
                 <span className="red-star">*</span>
               </p>
               <textarea
@@ -169,7 +173,8 @@ const HostForm = () => {
             <div>
               <h4>Detailed description</h4>
               <p>
-                Tell us about the experience you want to provide to your guests. Explain the whole process - from guests arriving to the end of the trip - in detail.
+                Tell us about the experience you want to provide to your guests.
+                Explain the whole process - from guests arriving to the end of the trip - in detail.
                 <span className="red-star">*</span>
               </p>
               <textarea
@@ -182,7 +187,8 @@ const HostForm = () => {
             <div>
               <h4>Additional info</h4>
               <p>
-                Please attach links where we can find photos of you performing the selected activities.
+                Please attach links where we can find photos of you
+                performing the selected activities.
                 <span className="red-star">*</span>
               </p>
               <textarea

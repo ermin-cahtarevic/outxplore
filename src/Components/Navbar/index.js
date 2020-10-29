@@ -6,22 +6,13 @@ import { logout } from '../../Redux/Actions/auth';
 
 import './navbar.css';
 
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 const Navbar = () => {
   const dispatch = useDispatch();
   const loggedIn = useSelector(store => store.auth.loggedIn);
   const isHost = useSelector(store => store.auth.user.host);
   const history = useHistory();
   const node = useRef();
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    document.addEventListener('mousedown', handleDropdownClose);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      document.removeEventListener('mousedown', handleDropdownClose);
-    };
-  }, []);
 
   const handleScroll = () => {
     if (window.scrollY > 20) {
@@ -31,7 +22,7 @@ const Navbar = () => {
     }
   };
 
-  const handleDropdown = e => {
+  const handleDropdown = () => {
     document.querySelector('.navbar-dropdown').classList.toggle('navbar-dropdown-closed');
   };
 
@@ -48,6 +39,16 @@ const Navbar = () => {
     history.push('/');
   };
 
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    document.addEventListener('mousedown', handleDropdownClose);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      document.removeEventListener('mousedown', handleDropdownClose);
+    };
+  }, []);
+
   return (
     <nav className="navbar">
       <div className="nav-wrap">
@@ -61,22 +62,30 @@ const Navbar = () => {
               </button>
               <ul className="navbar-dropdown navbar-dropdown-closed">
                 {
-                  !loggedIn && <li onClick={handleDropdown}><Link to="/signup">Sign up</Link></li>
+                  !loggedIn
+                  && (
+                    <li
+                      onClick={handleDropdown}
+                      onKeyDown={handleDropdown}
+                    >
+                      <Link to="/signup">Sign up</Link>
+                    </li>
+                  )
                 }
                 {
-                  !loggedIn && <li onClick={handleDropdown}><Link to="/login">Log in</Link></li>
+                  !loggedIn && <li onClick={handleDropdown} onKeyDown={handleDropdown}><Link to="/login">Log in</Link></li>
                 }
                 {
-                  loggedIn && <li onClick={handleDropdown}><Link to="/user">Profile</Link></li>
+                  loggedIn && <li onClick={handleDropdown} onKeyDown={handleDropdown}><Link to="/user">Profile</Link></li>
                 }
                 {
-                  isHost && <li onClick={handleDropdown}><Link to="/listings/new">Create an Activity Listing</Link></li>
+                  isHost && <li onClick={handleDropdown} onKeyDown={handleDropdown}><Link to="/listings/new">Create an Activity Listing</Link></li>
                 }
                 {
-                  !isHost && <li onClick={handleDropdown}><Link to="/host-activity">Host an Experience</Link></li>
+                  !isHost && <li onClick={handleDropdown} onKeyDown={handleDropdown}><Link to="/host-activity">Host an Experience</Link></li>
                 }
                 {
-                  loggedIn && <li onClick={handleDropdown}><button className="logout-btn" onClick={handleLogout}>Logout</button></li>
+                  loggedIn && <li onClick={handleDropdown} onKeyDown={handleDropdown}><button type="button" className="logout-btn" onClick={handleLogout}>Logout</button></li>
                 }
               </ul>
             </li>
@@ -87,5 +96,6 @@ const Navbar = () => {
     </nav>
   );
 };
+/* eslint-enable jsx-a11y/no-noninteractive-element-interactions */
 
 export default Navbar;

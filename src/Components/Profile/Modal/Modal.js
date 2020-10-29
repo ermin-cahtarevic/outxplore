@@ -1,5 +1,6 @@
 import React from 'react';
 import { ImCross } from 'react-icons/im';
+import Proptypes from 'prop-types';
 
 import './modal.css';
 
@@ -11,7 +12,7 @@ const Modal = ({ onSubmit, onChange }) => {
   return (
     <div className="modal-wrap">
       <div className="modal">
-        <button className="modal-close-btn" onClick={handleClose}>
+        <button type="button" className="modal-close-btn" onClick={handleClose}>
           <ImCross />
         </button>
         <div>
@@ -24,6 +25,11 @@ const Modal = ({ onSubmit, onChange }) => {
       </div>
     </div>
   );
+};
+
+Modal.propTypes = {
+  onSubmit: Proptypes.func.isRequired,
+  onChange: Proptypes.func.isRequired,
 };
 
 export default Modal;

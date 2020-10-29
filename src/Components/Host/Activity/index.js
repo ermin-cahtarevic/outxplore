@@ -42,7 +42,10 @@ const HostActivity = () => (
         <img src="https://images.unsplash.com/photo-1496887515187-f364d230ab6c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1319&q=80" alt="two people walikng on snow with snowboards in their hands" />
         <section className="host-act-about-text">
           <h4>Share your passion with the world</h4>
-          <p>Take people on trips to show them stunning locations. Places and activities they will never forget.</p>
+          <p>
+            Take people on trips to show them stunning locations.
+            Places and activities they will never forget.
+          </p>
         </section>
       </div>
     </div>
@@ -55,7 +58,10 @@ const HostActivity = () => (
           </div>
           <div>
             <h4>Professionals</h4>
-            <p>Hikers, surfers, avid snowboarders - among others. To guide the guests on a unique experience.</p>
+            <p>
+              Hikers, surfers, avid snowboarders - among others.
+              To guide the guests on a unique experience.
+            </p>
           </div>
         </div>
         <div>
@@ -64,7 +70,10 @@ const HostActivity = () => (
           </div>
           <div>
             <h4>Have access to unique places and activities</h4>
-            <p>They unviel all the natural wonders that couldn&apos;t be found without the help of locals.</p>
+            <p>
+              They unviel all the natural wonders that couldn&apos;t be found
+              without the help of locals.
+            </p>
           </div>
         </div>
         <div>
@@ -85,12 +94,18 @@ const HostActivity = () => (
         <div>
           <div className="host-act-num-wrap"><div>1</div></div>
           <h4>Apply to become a host and get approved</h4>
-          <p>Make sure your experience meets the needs. Extensive experience, access to places and professionalism.</p>
+          <p>
+            Make sure your experience meets the needs. Extensive experience,
+            access to places and professionalism.
+          </p>
         </div>
         <div>
           <div className="host-act-num-wrap"><div>2</div></div>
           <h4>Create an activity listing</h4>
-          <p>People will find you through the listing. Be sure to highlight your expertise and add high quality photos to leave a great first impression.</p>
+          <p>
+            People will find you through the listing. Be sure to highlight your expertise and add
+            high quality photos to leave a great first impression.
+          </p>
         </div>
         <div>
           <div className="host-act-num-wrap"><div>3</div></div>

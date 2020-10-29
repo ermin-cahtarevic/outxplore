@@ -38,7 +38,7 @@ const Profile = () => {
           <div className="user-profile-photo-wrap">
             <img src={user.photo ? user.photo : '/download.png'} alt={`${user.first_name} ${user.last_name}`} />
           </div>
-          <button onClick={openModal}>Update profile photo</button>
+          <button type="button" onClick={openModal}>Update profile photo</button>
         </aside>
         <section>
           <div>
@@ -46,7 +46,11 @@ const Profile = () => {
           </div>
           <div>
             <h4>About</h4>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis odio beatae, laborum cupiditate nesciunt quo velit debitis quibusdam necessitatibus blanditiis placeat tempora libero, corrupti magni autem. Molestiae, ad optio! Commodi.</p>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis odio beatae,
+              laborum cupiditate nesciunt quo velit debitis quibusdam necessitatibus blanditiis
+              placeat tempora libero, corrupti magni autem. Molestiae, ad optio! Commodi.
+            </p>
             <h4>Location</h4>
             <div className="user-profile-location">
               <ImHome className="home-icon" />

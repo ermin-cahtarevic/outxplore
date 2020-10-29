@@ -54,12 +54,14 @@ export const loggedIn = dispatch => {
     urlLoggedIn,
     { withCredentials: true },
   ).then(res => {
-    res.data.logged_in && dispatch({
-      type: LOGIN_SUCCESS,
-      payload: {
-        user: res.data.user,
-      },
-    });
+    if (res.data.logged_in) {
+      dispatch({
+        type: LOGIN_SUCCESS,
+        payload: {
+          user: res.data.user,
+        },
+      });
+    }
   });
 };
 
@@ -67,7 +69,7 @@ export const logout = dispatch => {
   axios.delete(
     urlLogout,
     { withCredentials: true },
-  ).then(res => {
+  ).then(() => {
     dispatch({
       type: LOGOUT_SUCCESS,
     });

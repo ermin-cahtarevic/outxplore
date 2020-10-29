@@ -1,7 +1,8 @@
 import React from 'react';
+import Proptypes from 'prop-types';
+import ListingCard from '../ListingCard';
 
 import './listing-list.css';
-import ListingCard from '../ListingCard';
 
 const ListingList = ({ listings }) => (
   <div className="listing-list">
@@ -12,5 +13,9 @@ const ListingList = ({ listings }) => (
       }
   </div>
 );
+
+ListingList.propTypes = {
+  listings: Proptypes.instanceOf(Array).isRequired,
+};
 
 export default ListingList;

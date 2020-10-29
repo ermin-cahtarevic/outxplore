@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Loader from 'react-loader-spinner';
+import Proptypes from 'prop-types';
 
 import './authentication.css';
 
@@ -23,6 +24,7 @@ const AuthForm = ({
 
   const opposite = type === 'signup' ? types.login : types.signup;
 
+  /* eslint-disable jsx-a11y/label-has-associated-control */
   return (
     <div className="auth-page">
       <div className="auth-page-bg-overlay">
@@ -48,24 +50,26 @@ const AuthForm = ({
               && (
               <div>
                 <div className="field">
+                  <label className="floating-label fl-first-name" htmlFor="firstName">
+                    <span className="floating-label-content">First name</span>
+                  </label>
                   <input
                     className="first-name"
                     type="text"
                     name="firstName"
+                    id="firstName"
                     onChange={handleChange}
                     value={state.firstName}
                     required
                     autoComplete="new-off"
                   />
-                  <label className="floating-label fl-first-name" htmlFor="firstName">
-                    <span className="floating-label-content">First name</span>
-                  </label>
                 </div>
                 <div className="field">
                   <input
                     className="last-name"
                     type="text"
                     name="lastName"
+                    id="lastName"
                     onChange={handleChange}
                     value={state.lastName}
                     required
@@ -84,6 +88,7 @@ const AuthForm = ({
                 className="email"
                 type="email"
                 name="email"
+                id="email"
                 onChange={handleChange}
                 value={state.email}
                 required
@@ -99,6 +104,7 @@ const AuthForm = ({
                 className="password"
                 type="password"
                 name="password"
+                id="password"
                 onChange={handleChange}
                 value={state.password}
                 required
@@ -116,6 +122,7 @@ const AuthForm = ({
                   className="password-confirmation"
                   type="password"
                   name="passwordConfirmation"
+                  id="passwordConfirmation"
                   onChange={handleChange}
                   value={state.passwordConfirmation}
                   required
@@ -134,6 +141,15 @@ const AuthForm = ({
       </div>
     </div>
   );
+};
+/* eslint-enable jsx-a11y/label-has-associated-control */
+
+AuthForm.propTypes = {
+  type: Proptypes.string.isRequired,
+  handleChange: Proptypes.func.isRequired,
+  handleSubmit: Proptypes.func.isRequired,
+  state: Proptypes.instanceOf(Object).isRequired,
+  error: Proptypes.string.isRequired,
 };
 
 export default AuthForm;
