@@ -20,7 +20,7 @@
   font-size: 60px;
   color: white;
   position: absolute;
-  width: fit-content;
+  width: max-content;
   left: 0;
   right: 0;
   top: 35%;
