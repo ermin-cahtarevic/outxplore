@@ -36,6 +36,14 @@
   color: inherit;
 }
 
+.navbar-dropdown li a {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 15px 20px;
+}
+
 .nav-list li a:hover {
   cursor: pointer;
 }
@@ -106,14 +114,6 @@
 .navbar-dropdown li:last-child a {
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
-}
-
-.navbar-dropdown li a {
-  box-sizing: border-box;
-  display: block;
-  width: 100%;
-  height: 100%;
-  padding: 15px 20px;
 }
 
 .logout-btn {
