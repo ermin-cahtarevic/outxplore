@@ -56,8 +56,7 @@ const ListingPage = () => {
                 <ImUsers />
               </div>
               <p>
-                Up to
-                {listing.guest_max_num}
+                Up to {listing.guest_max_num}
                 {
                   listing.guest_max_num > 1 ? ' people' : ' person'
                 }

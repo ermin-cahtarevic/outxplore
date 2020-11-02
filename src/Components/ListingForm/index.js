@@ -58,7 +58,10 @@ const ListingForm = () => {
   const handleSubmit = e => {
     e.preventDefault();
 
-    if (Object.values(formInput).some(input => input.trim().length < 1)) {
+    if (Object.values(formInput).some(input => {
+        if (typeof input !== 'string') return false;
+        return input.trim().length < 1
+      })) {
       setError('Please fill out all of the fields!');
       return;
     }

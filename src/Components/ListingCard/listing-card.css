@@ -38,6 +38,7 @@
 .listing-card > div p {
   display: block;
   max-height: 60px;
+  overflow: hidden;
 }
 
 .listing-card-price {
