@@ -19,6 +19,10 @@
   width: 200px;
 }
 
+.logo img {
+  width: 170px;
+}
+
 .nav-list {
   display: flex;
   justify-content: space-between;

@@ -52,7 +52,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="nav-wrap">
-        <div className="logo"><Link to="/">outxplore</Link></div>
+        <div className="logo"><Link to="/"><img src="/outxplore-logo.png" alt="outxplore-logo" /></Link></div>
         <div>
           <ul className="nav-list">
             <li><Link to="/host-activity" onClick={handleDropdownClose}>Become a Host</Link></li>
