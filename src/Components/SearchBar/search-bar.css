@@ -1,0 +1,48 @@
+.search-bar-wrap form {
+  display: flex;
+  width: 600px;
+  height: 40px;
+}
+
+.search-bar-wrap form > div {
+  width: 300px;
+}
+
+.search-bar-wrap .algolia-places input.ap-input {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 7px;
+  border-top-left-radius: 7px;
+}
+
+.search-bar-select {
+  box-sizing: border-box;
+  width: 200px;
+  padding: 0 10px;
+  font-size: 16px;
+  border: 1px solid;
+  border-color: rgb(207, 207, 207);
+  background-color: white;
+}
+
+.search-bar-select:hover,
+.search-bar-btn:hover {
+  cursor: pointer;
+}
+
+.search-bar-select:focus {
+  outline: none;
+}
+
+.search-bar-wrap .search-bar-btn {
+  width: 100px;
+  display: block;
+  padding: 10px 0;
+  font-size: 18px;
+  color: white;
+  background-color: rgb(21, 127, 31);
+  border: none;
+  border-radius: 7px;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}

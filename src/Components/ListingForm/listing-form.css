@@ -1,0 +1,88 @@
+.listing-form-page {
+  width: 100%;
+  padding-top: 120px;
+}
+
+.listing-form-wrap {
+  width: 900px;
+  margin: 0 auto;
+}
+
+.listing-form-wrap form > div {
+  margin: 20px 0;
+  background-color: rgb(241, 241, 241);
+  padding: 20px 20px 30px;
+  border-radius: 7px;
+}
+
+.listing-form-wrap form > div h4 {
+  margin: 5px 0;
+}
+
+.listing-form-wrap span {
+  font-style: italic;
+  color: rgb(134, 134, 134);
+}
+
+.listing-form-wrap span.red-star {
+  color: red;
+}
+
+.listing-form-wrap form > div input {
+  box-sizing: border-box;
+  width: 100%;
+  height: 40px;
+  padding: 7px 10px;
+  font-size: 16px;
+  border: 1px solid rgb(207, 207, 207);
+  background-color: white;
+  border-radius: 4px;
+}
+
+.listing-form-wrap form > div textarea {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  min-width: 100%;
+  min-height: 75px;
+  padding: 10px;
+  border-color: rgb(207, 207, 207);
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.activity-listing-price-input {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border: 1px solid rgb(207, 207, 207);
+  border-radius: 4px;
+  padding-left: 10px;
+}
+
+div.activity-listing-price-input input.activity-listing-price-field {
+  border: none;
+}
+
+.activity-listing-price-field:focus {
+  outline: none;
+}
+
+.activity-listing-price-input:focus-within {
+  box-shadow: 0 0 3px black;
+}
+
+.activity-listing-submit-btn {
+  display: block;
+  margin: 40px auto 60px;
+  background-color: rgb(21, 127, 31);
+  color: white;
+  border: none;
+  padding: 10px 50px;
+  font-size: 20px;
+  border-radius: 7px;
+}
+
+.activity-listing-submit-btn:hover {
+  cursor: pointer;
+}

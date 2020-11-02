@@ -1,0 +1,72 @@
+.modal-wrap {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  width: 350px;
+  height: 350px;
+  background-color: white;
+  border-radius: 15px;
+  position: relative;
+}
+
+.modal > div {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modal > div h3 {
+  margin: 60px 0 90px;
+  font-size: 22px;
+}
+
+.modal > div form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-file-submit {
+  background-color: rgb(21, 127, 31);
+  border: none;
+  padding: 5px 10px;
+  margin: 40px 0 0;
+  font-size: 16px;
+  color: white;
+  border-radius: 7px;
+}
+
+.modal-show {
+  display: flex;
+}
+
+.modal-close-btn {
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 15px;
+  font-size: 16px;
+  color: rgb(21, 127, 31);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+}
+
+.modal-close-btn:hover {
+  cursor: pointer;
+}

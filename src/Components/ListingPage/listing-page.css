@@ -1,0 +1,128 @@
+.listing-page-wrap {
+  padding-top: 120px;
+}
+
+.listing-page-main {
+  width: 900px;
+  margin: 0 auto;
+}
+
+.listing-page-photos {
+  margin-bottom: 50px;
+}
+
+.listing-page-img-wrap img {
+  height: 600px;
+  max-width: 100%;
+  object-fit: cover;
+  margin: 0 auto;
+}
+
+div.slick-list {
+  width: 100%;
+}
+
+.listing-page-details {
+  display: flex;
+}
+
+.listing-page-details > div {
+  width: 650px;
+}
+
+.listing-page-main-info {
+  display: flex;
+  align-items: center;
+}
+
+.listing-page-main-info div {
+  font-size: 25px;
+  margin-right: 15px;
+}
+
+.listing-page-details > div > div {
+  border-bottom: 1px solid rgb(182, 182, 182);
+  padding: 20px 10px;
+}
+
+.slick-slide div:focus,
+.slick-slide div div:focus,
+.slick-slide.slick-active.slick-current > div:focus,
+.slick-slide.slick-active.slick-current > div:visited,
+.slick-slide.slick-active.slick-current div > div:focus,
+.slick-slide.slick-active.slick-current div > div:visited {
+  outline: none;
+}
+
+.listing-page-photos button.slick-arrow {
+  width: 33px;
+  height: 33px;
+}
+
+button.slick-prev,
+button.slick-next {
+  z-index: 99;
+  background-color: white;
+  border-radius: 50%;
+}
+
+button.slick-prev {
+  left: 2%;
+}
+
+button.slick-next {
+  right: 2%;
+}
+
+button.slick-prev:hover,
+button.slick-prev:focus,
+button.slick-next:hover,
+button.slick-next:focus {
+  background-color: white;
+}
+
+.listing-page-photos button.slick-prev::before,
+.listing-page-photos button.slick-next::before {
+  color: rgb(182, 182, 182);
+  font-size: 35px;
+}
+
+.listing-page-side-info {
+  width: 200px;
+  height: 400px;
+  margin-left: auto;
+  position: sticky;
+  top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgb(182, 182, 182);
+  border-radius: 15px;
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.3);
+}
+
+.listing-page-side-info button {
+  padding: 10px 12px;
+  margin: 40px 0 0;
+  font-size: 18px;
+  color: white;
+  background-color: rgb(21, 127, 31);
+  border: none;
+  border-radius: 7px;
+}
+
+.listing-page-host-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.listing-page-host-info img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid rgb(21, 127, 31);
+}
