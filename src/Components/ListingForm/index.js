@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Place from 'react-algolia-places';
 import { useDispatch } from 'react-redux';
-import { activities } from '../helper';
+import { activities } from '../helpers/helper';
 import { createLisitng } from '../../Redux/Actions/listings';
 
 import './listing-form.css';

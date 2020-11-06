@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Place from 'react-algolia-places';
-import { activities } from '../helper';
+import { activities } from '../helpers/helper';
 
 import './search-bar.css';
 

@@ -5,6 +5,7 @@ import Slider from 'react-slick';
 import { ImUsers } from 'react-icons/im';
 import { fetchListingDetails } from '../../Redux/Actions/listings';
 import LoadingSpinner from '../LoadingSpinner';
+import ListingPageModal from './Modal';
 
 import './listing-page.css';
 import 'slick-carousel/slick/slick.css';
@@ -20,6 +21,11 @@ const ListingPage = () => {
     fetchListingDetails(id)(dispatch);
   }, [id, dispatch]);
 
+  const openModal = () => {
+    document.querySelector('.listing-page-modal-wrap').classList.add('modal-show');
+    document.querySelector('body').style.overflow = 'hidden';
+  };
+
   const settings = {
     dots: true,
     speed: 500,
@@ -34,6 +40,7 @@ const ListingPage = () => {
   /* eslint-disable react/jsx-props-no-spreading */
   return (
     <div className="listing-page-wrap">
+      <ListingPageModal host={listing.host} />
       <div className="listing-page-main">
         <div className="listing-page-photos">
           <Slider {...settings}>
@@ -77,7 +84,7 @@ const ListingPage = () => {
               {listing.price}
             </h1>
             <span> per person</span>
-            <button type="button">Contact the host</button>
+            <button type="button" onClick={openModal}>Contact the host</button>
             <div className="listing-page-host-info">
               <img src={listing.host.photo} alt={`${listing.host.first_name} ${listing.host.last_name}`} />
               <h3>{`${listing.host.first_name} ${listing.host.last_name}`}</h3>

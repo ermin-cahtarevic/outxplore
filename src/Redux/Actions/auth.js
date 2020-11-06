@@ -3,11 +3,11 @@ import {
   LOGIN_SUBMIT, SIGNUP_SUBMIT, SIGNUP_SUCCESS, LOGIN_SUCCESS, LOGOUT_SUCCESS, PHOTO_UPDATE_SUCCESS,
 } from '../helper';
 
-const urlSignUp = 'https://nameless-waters-17056.herokuapp.com/registrations';
-const urlLogIn = 'https://nameless-waters-17056.herokuapp.com/sessions';
-const urlLoggedIn = 'https://nameless-waters-17056.herokuapp.com/logged_in';
-const urlLogout = 'https://nameless-waters-17056.herokuapp.com/logout';
-const urlUpdatePhoto = 'https://nameless-waters-17056.herokuapp.com/update_photo';
+const urlSignUp = 'http://localhost:3001/registrations';
+const urlLogIn = 'http://localhost:3001/sessions';
+const urlLoggedIn = 'http://localhost:3001/logged_in';
+const urlLogout = 'http://localhost:3001/logout';
+const urlUpdatePhoto = 'http://localhost:3001/update_photo';
 
 export const signUpUser = data => (dispatch, history) => {
   dispatch({

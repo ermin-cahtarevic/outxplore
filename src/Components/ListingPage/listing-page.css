@@ -112,6 +112,10 @@ button.slick-next:focus {
   border-radius: 7px;
 }
 
+.listing-page-side-info button:hover {
+  cursor: pointer;
+}
+
 .listing-page-host-info {
   display: flex;
   flex-direction: column;

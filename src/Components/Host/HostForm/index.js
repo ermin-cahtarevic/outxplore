@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import Place from 'react-algolia-places';
 import hostApplication from '../../../Redux/Actions/host';
-import { activities, previousExperience, locationTypes } from '../../helper';
+import { activities, previousExperience, locationTypes } from '../../helpers/helper';
 
 import './hostForm.css';
 

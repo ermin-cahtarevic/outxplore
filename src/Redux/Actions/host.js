@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { APPLICATION_SUBMISSION_SUCCESS } from '../helper';
 
-const urlHostApplication = 'https://nameless-waters-17056.herokuapp.com/host_application.json';
+const urlHostApplication = 'http://localhost:3001/host_application.json';
 
 const hostApplication = data => dispatch => {
   axios.post(

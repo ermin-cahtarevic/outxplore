@@ -13,6 +13,7 @@ import ProtectedRoute from './ProtectedRoute';
 import HostRoute from './HostRoute';
 import ListingForm from './ListingForm';
 import ListingPage from './ListingPage';
+import { ScrollToTop } from './helpers/ScrollToTop';
 
 function App() {
   const dispatch = useDispatch();
@@ -24,6 +25,7 @@ function App() {
   return (
     <div>
       <BrowserRouter>
+        <ScrollToTop />
         <Navbar />
         <Switch>
           <Route exact path="/">
