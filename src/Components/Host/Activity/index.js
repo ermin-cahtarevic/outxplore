@@ -57,7 +57,7 @@ const HostActivity = () => (
             <ImUserCheck className="host-act-icon" />
           </div>
           <div>
-            <h4>Professionals</h4>
+            <h4>Professional</h4>
             <p>
               Hikers, surfers, avid snowboarders - among others.
               To guide the guests on a unique experience.
